@@ -1,0 +1,1 @@
+{"version":3,"sources":["theme.scss"],"names":[],"mappings":"AAAA;EACE,qBAAa,EAAA","file":"../theme.css","sourcesContent":[":root {\n  --color-main: #083e8d;\n}"]}

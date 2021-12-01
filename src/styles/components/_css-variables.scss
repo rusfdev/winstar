@@ -1,0 +1,33 @@
+:root {
+  --grid-gutter-width: 24px;
+  --container-padding-x: 24px;
+
+  --scrollbar-width: var(--scrollbar-width-property, 0px);
+  --window-safe-height: var(--window-safe-height-property, 100vh);
+
+  --page-width: calc(100vw - var(--scrollbar-width));
+  --content-width: calc(var(--container-width) - var(--container-padding-x) * 2);
+  --content-fields-width: calc((var(--page-width) - var(--content-width)) / 2);
+  
+
+  @include media-breakpoint-up(xxl) {
+    --container-width: #{map-get($container-max-widths, xxl)};
+  }
+  @include media-breakpoint-down(xxl) {
+    --container-width: #{map-get($container-max-widths, xl)};
+  }
+  @include media-breakpoint-down(xl) {
+    --container-width: #{map-get($container-max-widths, lg)};
+  }
+  @include media-breakpoint-down(lg) {
+    --container-width: #{map-get($container-max-widths, md)};
+  }
+  @include media-breakpoint-down(md) {
+    --container-width: #{map-get($container-max-widths, sm)};
+    --grid-gutter-width: 16px;
+    --container-padding-x: 16px;
+  }
+  @include media-breakpoint-down(sm) {
+    --container-width: var(--page-width);
+  }
+}
