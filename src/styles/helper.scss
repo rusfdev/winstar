@@ -13,13 +13,13 @@ $trs: .25s ease-in-out;
 $font1: 'Roboto', sans-serif;
 $font2: 'Open Sans', sans-serif;
 
-
 .helper {
+  --window-safe-height: var(--window-safe-height-property, 100vh);
   font-family: $font1;
   position: fixed;
   z-index: 10000;
   left: 0;
-  top: 50%;
+  top: calc(var(--window-safe-height) / 2);
   transform: translate(-100%, -50%);
   transition: transform $trs;
   width: 100%;

@@ -2,7 +2,7 @@
 <html lang="ru">
   <head>
     <meta charset="utf-8">
-    <title>Тест</title>
+    <title>Текстовая страница</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="format-detection" content="telephone=no">
     <!--color-->
@@ -29,8 +29,37 @@
   </head>
   <body>
     <div class="wrapper">
-      <header class="header"></header>
+      <header class="header">
+        <div class="header__top"> </div>
+        <div class="header__bottom">
+          <div class="container">
+            <nav class="header-nav">
+              <ul class="header-nav__list">
+                <li class="header-nav__item"> <a class="header-nav__link" href="#">Главная</a></li>
+                <li class="header-nav__item"> <a class="header-nav__link" href="#">Продукты</a></li>
+                <li class="header-nav__item"> <a class="header-nav__link" href="#">Новости</a></li>
+                <li class="header-nav__item"> <a class="header-nav__link" href="#">Индивидуальное производство</a></li>
+                <li class="header-nav__item"> <a class="header-nav__link" href="#">Загрузки </a></li>
+                <li class="header-nav__item"> <a class="header-nav__link" href="#">Видео</a></li>
+                <li class="header-nav__item"> <a class="header-nav__link" href="#">О нас</a></li>
+                <li class="header-nav__item"> <a class="header-nav__link" href="#">Контакты</a></li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </header>
       <main class="main">
+        <div class="breadcrumbs">
+          <div class="container breadcrumbs__container">
+            <ul class="breadcrumbs__list">
+              <li class="breadcrumbs__item"><a class="breadcrumbs__link" href="#"><span>Главная</span>
+                  <svg class="icon">
+                    <use xlink:href="./img/icons/icons.svg#caret-right"></use>
+                  </svg></a></li>
+              <li class="breadcrumbs__item"><span>Текстовая страница</span></li>
+            </ul>
+          </div>
+        </div>
       </main>
       <footer class="footer"></footer>
     </div>
@@ -50,7 +79,7 @@
       <div class="helper__container">
         <!--section-->
         <div class="helper__section"><span class="helper__section-title">Страницы:</span>
-          <div class="helper__section-content"><a class="helper__section-button" href="index.html">Главная</a><a class="helper__section-button" href="test.html">тест</a></div>
+          <div class="helper__section-content"><a class="helper__section-button" href="index.html">Главная</a><a class="helper__section-button" href="contacts.html">Контакты</a><a class="helper__section-button" href="typography.html">Типографика</a><a class="helper__section-button" href="textpage.html">Текстовая страница</a></div>
         </div>
       </div>
     </div>

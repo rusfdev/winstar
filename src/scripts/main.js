@@ -5,12 +5,20 @@ const breakpoints = {
   xl: 1280,
   xxl: 1600
 }
-
 const $wrapper = document.querySelector('.wrapper');
 const $header = document.querySelector('.header');
 
+import 'lazysizes';
+
 document.addEventListener("DOMContentLoaded", function() {
   CustomInteractionEvents.init();
+
+  document.querySelectorAll('.header-search').forEach($this => {
+    new HeaderSearch($this).init();
+  })
+  document.querySelectorAll('.lang-toggle').forEach($this => {
+    new LangToggle($this).init();
+  })
 });
 
 const CustomInteractionEvents = Object.create({
@@ -85,3 +93,82 @@ const CustomInteractionEvents = Object.create({
     document.addEventListener('contextmenu', this.events);
   }
 })
+
+class HeaderSearch {
+  constructor($parent) {
+    this.$parent = $parent;
+  }
+
+  init() {
+    this._trigger_ = '.header-search__trigger';
+    this._form_ = '.header-search__form';
+    this.$trigger = this.$parent.querySelector(this._trigger_);
+    this.$form = this.$parent.querySelector(this._form_);
+
+    this.show = () => {
+      this.state = true;
+      this.$form.classList.add('active');
+      this.$trigger.classList.add('active');
+    }
+
+    this.hide = () => {
+      this.state = false;
+      this.$form.classList.remove('active');
+      this.$trigger.classList.remove('active');
+    }
+
+    this.$trigger.addEventListener('click', () => {
+      if (!this.state) {
+        this.show();
+      } else {
+        this.hide();
+      }
+    })
+
+    document.addEventListener('click', (event) => {
+      if (!event.target.closest(this._trigger_) && !event.target.closest(this._form_) && this.state) {
+        this.hide();
+      }
+    })
+  }
+}
+
+class LangToggle {
+  constructor($parent) {
+    this.$parent = $parent;
+  }
+
+  init() {
+    this._trigger_ = '.lang-toggle__selected';
+    this._langs_ = '.lang-toggle__langs';
+
+    this.$trigger = this.$parent.querySelector(this._trigger_);
+    this.$langs = this.$parent.querySelector(this._langs_);
+
+    this.show = () => {
+      this.state = true;
+      this.$langs.classList.add('active');
+      this.$trigger.classList.add('active');
+    }
+
+    this.hide = () => {
+      this.state = false;
+      this.$langs.classList.remove('active');
+      this.$trigger.classList.remove('active');
+    }
+
+    this.$trigger.addEventListener('click', () => {
+      if (!this.state) {
+        this.show();
+      } else {
+        this.hide();
+      }
+    })
+
+    document.addEventListener('click', (event) => {
+      if (!event.target.closest(this._trigger_) && !event.target.closest(this._langs_) && this.state) {
+        this.hide();
+      }
+    })
+  }
+}

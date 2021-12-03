@@ -1,3 +1,244 @@
 .header {
-  
+  //position: fixed;
+  width: var(--page-width);
+  &__top {
+    background-color: #fff;
+    padding: 15px 0 20px 0;
+  }
+  &__top-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &__slogan {
+    flex: 1 1 auto;
+    text-align: center;
+    font-family: 'Charmonman', cursive;
+    font-size: 20px;
+    line-height: 34px;
+    color: var(--color-main-alternate);
+    padding-top: 30px;
+  }
+  &__socials {
+    flex: 0 0 auto;
+    padding-top: 30px;
+    --size: 34px;
+    --gap: 10px;
+    --color: var(--color-main);
+    --color-hover: var(--color-main-medium);
+  }
+  &__logo {
+    height: 80px;
+    flex: 0 0 auto;
+  }
+}
+
+.header-nav {
+  --height: var(--header-fixed-height);
+  background-color: var(--color-main);
+  color: #fff;
+  font-size: 14px;
+  position: sticky;
+  z-index: 10000;
+  top: 0;
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &__list {
+    display: flex;
+    flex: 0 0 auto;
+    position: relative;
+    z-index: 2;
+  }
+  &__item {
+    position: relative;
+    &[data-touch], &[data-hover] {
+      .header-nav__link {
+        background-color: var(--color-main-medium);
+      }
+      .header-nav__sub-list {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+  }
+  &__link {
+    display: flex;
+    align-items: center;
+    line-height: var(--height);
+    line-height: 20px;
+    text-transform: uppercase;
+    padding: calc((var(--height) - 20px) / 2) calc(var(--grid-gutter-width) / 2);
+    gap: 4px;
+    transition: background-color var(--trs-1);
+    .icon {
+      width: 12px;
+      height: 12px;
+    }
+    &[data-touch], &[data-hover] {
+      background-color: var(--color-main-medium);
+    }
+    &.active {
+      background-color: var(--color-main-alternate);
+      cursor: default;
+    }
+  }
+  &__sub-list {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 200px;
+    background-color: var(--color-main-medium);
+    padding: 10px 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity var(--trs-1), visibility var(--trs-1);
+  }
+  &__sub-link {
+    display: block;
+    white-space: nowrap;
+    padding: 6px calc(var(--grid-gutter-width) / 2);
+    line-height: 1.35;
+    transition: background-color var(--trs-1);
+    &[data-touch], &[data-hover] {
+      background-color: var(--color-main);
+    }
+  }
+}
+
+.header-search {
+  --icon-size: 20px;
+  flex: 0 0 auto;
+  display: flex;
+  transition: background-color var(--trs-1);
+  position: relative;
+  &__form {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 300px;
+    opacity: 0;
+    visibility: hidden;
+    display: flex;
+    background-color: var(--color-main-medium);
+    transition: opacity var(--trs-1), visibility var(--trs-1);
+    &.active {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+  &__submit {
+    flex: 0 0 auto;
+    display: flex;
+    width: var(--height);
+    height: var(--height);
+    transition: background-color var(--trs-1);
+    .icon {
+      width: var(--icon-size);
+      height: var(--icon-size);
+      margin: auto;
+    }
+    &[data-touch], &[data-hover] {
+      background-color: var(--color-main);
+    }
+  }
+  &__input {
+    display: block;
+    width: 100%;
+    height: var(--height);
+    line-height: var(--height);
+    padding: 0 15px;
+    color: #fff;
+    &::placeholder {
+      color: #fff;
+      transition: opacity var(--trs-1);
+      text-transform: uppercase;
+    }
+    &:focus {
+      &::placeholder {
+        opacity: 0;
+      }
+    }
+  }
+  &__trigger {
+    flex: 0 0 auto;
+    display: flex;
+    width: var(--height);
+    height: var(--height);
+    transition: background-color var(--trs-1);
+    position: relative;
+    .icon {
+      width: var(--icon-size);
+      height: var(--icon-size);
+      margin: auto;
+      transition: opacity var(--trs-1);
+      &:last-child {
+        position: absolute;
+        top: calc((var(--height) - var(--icon-size)) / 2);
+        left: calc((var(--height) - var(--icon-size)) / 2);
+        opacity: 0;
+      }
+    }
+    &[data-touch], &[data-hover] {
+      background-color: var(--color-main-medium);
+    }
+    &.active {
+      background-color: var(--color-main-medium);
+      .icon {
+        &:first-child {
+          opacity: 0;
+        }
+        &:last-child {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
+.lang-toggle {
+  flex: 0 0 auto;
+  position: relative;
+  &__selected {
+    height: var(--height);
+    width: var(--height);
+    transition: background-color var(--trs-1);
+    text-transform: uppercase;
+    text-align: center;
+    line-height: var(--height);
+    &[data-touch], &[data-hover] {
+      background-color: var(--color-main-medium);
+    }
+    &.active {
+      background-color: var(--color-main-medium);
+    }
+  }
+  &__langs {
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity var(--trs-1), visibility var(--trs-1);
+    &.active {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+  &__lang {
+    display: block;
+    height: var(--height);
+    width: var(--height);
+    text-transform: uppercase;
+    text-align: center;
+    line-height: var(--height);
+    background-color: var(--color-main-medium);
+    transition: background-color var(--trs-1);
+    &[data-touch], &[data-hover] {
+      background-color: var(--color-main);
+    }
+  }
 }

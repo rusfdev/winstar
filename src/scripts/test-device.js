@@ -9,6 +9,3 @@ if (device.ios()) {
 }
 
 document.documentElement.style.setProperty('--scrollbar-width-property', `${window.innerWidth - document.documentElement.clientWidth}px`);
-
-
-console.log(window.innerWidth - document.documentElement.clientWidth)

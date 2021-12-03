@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <title>Текстовая страница</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="format-detection" content="telephone=no">
+    <!--color-->
+    <meta name="theme-color" content="#fff">
+    <!--favicons-->
+    <link rel="apple-touch-icon" sizes="180x180" href="./img/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./img/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./img/favicons/favicon-16x16.png">
+    <!--open graph-->
+    <meta property="og:title" content="Заголовок страницы">
+    <meta property="og:site_name" content="Название сайта">
+    <meta property="og:url" content="Ссылка на текущую страницу">
+    <meta property="og:description" content="Описание страницы">
+    <meta property="og:image" content="Изображение страницы">
+    <!--fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Charmonman&amp;family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+    <!--styles-->
+    <link rel="stylesheet" href="./styles/theme.css">
+    <link rel="stylesheet" href="./styles/main.css">
+    <!--test-->
+    <script src="./scripts/test-device.js"></script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <div class="header__top">
+          <div class="container header__top-container"> <a class="logo header__logo" href="#"><img src="./img/logos/logo.png" alt="logo"></a>
+            <div class="header__slogan">Endmills, Drills, Inserts Manufacturer</div>
+            <div class="socials header__socials">
+              <ul class="socials__list">
+                <li class="socials__item"> <a class="socials__link" href="#">
+                    <svg class="icon">
+                      <use xlink:href="./img/icons/socials.svg#facebook"></use>
+                    </svg></a></li>
+                <li class="socials__item"> <a class="socials__link" href="#">
+                    <svg class="icon">
+                      <use xlink:href="./img/icons/socials.svg#instagram"></use>
+                    </svg></a></li>
+                <li class="socials__item"> <a class="socials__link" href="#">
+                    <svg class="icon">
+                      <use xlink:href="./img/icons/socials.svg#youtube"></use>
+                    </svg></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </header>
+      <nav class="header-nav">
+        <div class="container header-nav__container">
+          <div class="header-search">
+            <form class="header-search__form" action="#">
+              <button class="header-search__submit">
+                <svg class="icon">
+                  <use xlink:href="./img/icons/icons.svg#magnifying-glass"></use>
+                </svg>
+              </button>
+              <input class="header-search__input" type="text" placeholder="Поиск">
+            </form>
+            <button class="header-search__trigger" type="button">
+              <svg class="icon">
+                <use xlink:href="./img/icons/icons.svg#magnifying-glass"></use>
+              </svg>
+              <svg class="icon">
+                <use xlink:href="./img/icons/icons.svg#close"></use>
+              </svg>
+            </button>
+          </div>
+          <ul class="header-nav__list">
+            <li class="header-nav__item"> <a class="header-nav__link" href="./">Главная</a></li>
+            <li class="header-nav__item" data-custom-interaction> <a class="header-nav__link" href="#">Продукты
+                <svg class="icon">
+                  <use xlink:href="./img/icons/icons.svg#caret-bottom"></use>
+                </svg></a>
+              <ul class="header-nav__sub-list">
+                <li class="header-nav__sub-item"> <a class="header-nav__sub-link" href="#">End mill </a></li>
+                <li class="header-nav__sub-item"> <a class="header-nav__sub-link" href="#">Milling inserts</a></li>
+                <li class="header-nav__sub-item"> <a class="header-nav__sub-link" href="#">Milling holder</a></li>
+                <li class="header-nav__sub-item"> <a class="header-nav__sub-link" href="#">Drills & Reamersa</a></li>
+                <li class="header-nav__sub-item"> <a class="header-nav__sub-link" href="#">Drills inserts & holder & Borin</a></li>
+                <li class="header-nav__sub-item"> <a class="header-nav__sub-link" href="#">Turning & holder & other</a></li>
+                <li class="header-nav__sub-item"> <a class="header-nav__sub-link" href="#">Accessories</a></li>
+              </ul>
+            </li>
+            <li class="header-nav__item"> <a class="header-nav__link" href="#">Новости</a></li>
+            <li class="header-nav__item" data-custom-interaction> <a class="header-nav__link" href="#">Индивидуальное производство
+                <svg class="icon">
+                  <use xlink:href="./img/icons/icons.svg#caret-bottom"></use>
+                </svg></a>
+              <ul class="header-nav__sub-list">
+                <li class="header-nav__sub-item"> <a class="header-nav__sub-link" href="#">Customized Carbide End Mills Manufacturing</a></li>
+                <li class="header-nav__sub-item"> <a class="header-nav__sub-link" href="#">Customized Carbide Inserts Manufacturing</a></li>
+                <li class="header-nav__sub-item"> <a class="header-nav__sub-link" href="#">Customized Carbide Drills Manufacturing</a></li>
+              </ul>
+            </li>
+            <li class="header-nav__item"> <a class="header-nav__link" href="#">Загрузки </a></li>
+            <li class="header-nav__item"> <a class="header-nav__link" href="#">Видео</a></li>
+            <li class="header-nav__item"> <a class="header-nav__link" href="#">О нас</a></li>
+            <li class="header-nav__item"> <a class="header-nav__link" href="#"> <span>Контакты</span></a></li>
+          </ul>
+          <div class="lang-toggle">
+            <button class="lang-toggle__selected">ru</button>
+            <div class="lang-toggle__langs"> <a class="lang-toggle__lang" href="./">en</a></div>
+          </div>
+        </div>
+      </nav>
+      <main class="main">
+        <div class="breadcrumbs">
+          <div class="container breadcrumbs__container">
+            <ul class="breadcrumbs__list">
+              <li class="breadcrumbs__item"><a class="breadcrumbs__link link" href="#"><span>Главная</span></a>
+                <svg class="icon">
+                  <use xlink:href="./img/icons/icons.svg#caret-right"></use>
+                </svg>
+              </li>
+              <li class="breadcrumbs__item"><span>Текстовая страница</span></li>
+            </ul>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-9">
+              <h1>Title H1</h1>
+              <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+              <h2>Title H2 </h2>
+              <p>Lorem ipsum dolor sit amet, consetetur <a href="#">sadipscing</a> elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+              <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+              <h3>Title H3</h3>
+              <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+              <h5>H700 — High Helix Square Type — 6 °F / 8 °F</h5>
+              <div class="table">
+                <table>
+                  <tbody>
+                    <tr>
+                      <th>Order No.</th>
+                      <th>US$/PC</th>
+                      <th>PAGE</th>
+                      <th>Dia.<br>(d)</th>
+                      <th>CL<br>(L1)</th>
+                      <th>OAL<br>(L)</th>
+                      <th>Shank<br> (D)</th>
+                      <th>Flutes<br>(F)</th>
+                    </tr>
+                    <tr>
+                      <td>EHSSS606000S</td>
+                      <td>22,8 </td>
+                      <td>A011</td>
+                      <td>6,0 </td>
+                      <td>15,0 </td>
+                      <td>50,0 </td>
+                      <td>6,0 </td>
+                      <td>6</td>
+                    </tr>
+                    <tr>
+                      <td>EHSSS608000S</td>
+                      <td>41,8 </td>
+                      <td>A011</td>
+                      <td>8,0 </td>
+                      <td>20,0 </td>
+                      <td>60,0 </td>
+                      <td>8,0 </td>
+                      <td>6</td>
+                    </tr>
+                    <tr>
+                      <td>EHSSS610000S</td>
+                      <td>64,3 </td>
+                      <td>A011</td>
+                      <td>10,0 </td>
+                      <td>25,0 </td>
+                      <td>75,0 </td>
+                      <td>10,0 </td>
+                      <td>6</td>
+                    </tr>
+                    <tr>
+                      <td>EHSSS612000S</td>
+                      <td>84,5 </td>
+                      <td>A011</td>
+                      <td>12,0 </td>
+                      <td>30,0 </td>
+                      <td>75,0 </td>
+                      <td>12,0 </td>
+                      <td>6</td>
+                    </tr>
+                    <tr>
+                      <td>EHSSS614000S</td>
+                      <td>156,5 </td>
+                      <td>A011</td>
+                      <td>14,0 </td>
+                      <td>30,0 </td>
+                      <td>75,0 </td>
+                      <td>14,0 </td>
+                      <td>6</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>EHSSS816000S</td>
+                      <td>189,6 </td>
+                      <td>A011</td>
+                      <td>16,0 </td>
+                      <td>40,0 </td>
+                      <td>100,0 </td>
+                      <td>16,0 </td>
+                      <td>8</td>
+                    </tr>
+                    <tr>
+                      <td>EHSSS818000S</td>
+                      <td>252,6 </td>
+                      <td>A011</td>
+                      <td>18,0 </td>
+                      <td>40,0 </td>
+                      <td>100,0 </td>
+                      <td>18,0 </td>
+                      <td>8</td>
+                    </tr>
+                    <tr>
+                      <td>EHSSS820000S</td>
+                      <td>277,9 </td>
+                      <td>A011</td>
+                      <td>20,0 </td>
+                      <td>45,0 </td>
+                      <td>100,0 </td>
+                      <td>20,0 </td>
+                      <td>8</td>
+                    </tr>
+                    <tr>
+                      <td>EHSSS825000S</td>
+                      <td>397,1 </td>
+                      <td>A011</td>
+                      <td>25,0 </td>
+                      <td>45,0 </td>
+                      <td>100,0 </td>
+                      <td>25,0 </td>
+                      <td>8 </td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>EHSSS606000N</td>
+                      <td>22,8 </td>
+                      <td>A011</td>
+                      <td>6,0 </td>
+                      <td>15,0 </td>
+                      <td>50,0 </td>
+                      <td>6,0 </td>
+                      <td>6</td>
+                    </tr>
+                    <tr>
+                      <td>EHSSS608000N</td>
+                      <td>41,8 </td>
+                      <td>A011</td>
+                      <td>8,0 </td>
+                      <td>20,0 </td>
+                      <td>60,0 </td>
+                      <td>8,0 </td>
+                      <td>6</td>
+                    </tr>
+                    <tr>
+                      <td>EHSSS610000N</td>
+                      <td>64,3 </td>
+                      <td>A011</td>
+                      <td>10,0 </td>
+                      <td>25,0 </td>
+                      <td>75,0 </td>
+                      <td>10,0 </td>
+                      <td>6</td>
+                    </tr>
+                    <tr>
+                      <td>EHSSS612000N</td>
+                      <td>84,5 </td>
+                      <td>A011</td>
+                      <td>12,0 </td>
+                      <td>30,0 </td>
+                      <td>75,0 </td>
+                      <td>12,0 </td>
+                      <td>6</td>
+                    </tr>
+                    <tr>
+                      <td>EHSSS614000N</td>
+                      <td>156,5 </td>
+                      <td>A011</td>
+                      <td>14,0 </td>
+                      <td>30,0 </td>
+                      <td>75,0 </td>
+                      <td>14,0 </td>
+                      <td>6</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>EHSSS816000N</td>
+                      <td>189,6 </td>
+                      <td>A011</td>
+                      <td>16,0 </td>
+                      <td>40,0 </td>
+                      <td>100,0 </td>
+                      <td>16,0 </td>
+                      <td>8</td>
+                    </tr>
+                    <tr>
+                      <td>EHSSS818000N</td>
+                      <td>252,6 </td>
+                      <td>A011</td>
+                      <td>18,0 </td>
+                      <td>40,0 </td>
+                      <td>100,0 </td>
+                      <td>18,0 </td>
+                      <td>8</td>
+                    </tr>
+                    <tr>
+                      <td>EHSSS820000N</td>
+                      <td>277,9 </td>
+                      <td>A011</td>
+                      <td>20,0 </td>
+                      <td>45,0 </td>
+                      <td>100,0 </td>
+                      <td>20,0 </td>
+                      <td>8</td>
+                    </tr>
+                    <tr>
+                      <td>EHSSS825000N</td>
+                      <td>397,1 </td>
+                      <td>A011</td>
+                      <td>25,0 </td>
+                      <td>45,0 </td>
+                      <td>100,0 </td>
+                      <td>25,0 </td>
+                      <td>8</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <h5>H700 — High Helix & Short Flute Square Type — 4 °F / 6 °F / 8 °F</h5>
+              <div class="table">
+                <table>
+                  <tbody>
+                    <tr>
+                      <th>Order No.</th>
+                      <th>US$/PC</th>
+                      <th>PAGE</th>
+                      <th>Dia.<br>(d)</th>
+                      <th>CL<br>(L1)</th>
+                      <th>EFF-L (L2)</th>
+                      <th>OAL<br>(L)</th>
+                      <th>Shank<br> (D)</th>
+                      <th>Flutes<br>(F)</th>
+                    </tr>
+                    <tr>
+                      <td> <strong>EHSUS441000S</strong></td>
+                      <td>16,1 </td>
+                      <td> A012</td>
+                      <td>1 </td>
+                      <td>1,5 </td>
+                      <td>2,5 </td>
+                      <td>50 </td>
+                      <td>4 </td>
+                      <td>4</td>
+                    </tr>
+                    <tr>
+                      <td><strong>EHSUS442000S</strong></td>
+                      <td>16,1 </td>
+                      <td> A012</td>
+                      <td>2 </td>
+                      <td>3 </td>
+                      <td>5 </td>
+                      <td>50 </td>
+                      <td>4 </td>
+                      <td>4</td>
+                    </tr>
+                    <tr>
+                      <td>EHSUS403000S</td>
+                      <td>22,8 </td>
+                      <td> A012</td>
+                      <td>3 </td>
+                      <td>4,5 </td>
+                      <td>7,5 </td>
+                      <td>50 </td>
+                      <td>6 </td>
+                      <td>4</td>
+                    </tr>
+                    <tr>
+                      <td>EHSUS404000S</td>
+                      <td>22,8 </td>
+                      <td> A012</td>
+                      <td>4 </td>
+                      <td>6 </td>
+                      <td>10 </td>
+                      <td>50 </td>
+                      <td>6 </td>
+                      <td>4</td>
+                    </tr>
+                    <tr>
+                      <td>EHSUS405000S</td>
+                      <td>22,8 </td>
+                      <td>A012</td>
+                      <td>5 </td>
+                      <td>7,5 </td>
+                      <td>12,5 </td>
+                      <td>50 </td>
+                      <td>6 </td>
+                      <td>4</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>EHSUS606000S</td>
+                      <td>22,8 </td>
+                      <td>A012</td>
+                      <td>6 </td>
+                      <td>9</td>
+                      <td>15 </td>
+                      <td>50 </td>
+                      <td>6 </td>
+                      <td>6</td>
+                    </tr>
+                    <tr>
+                      <td>EHSUS608000S</td>
+                      <td>41,8 </td>
+                      <td> A012</td>
+                      <td>8 </td>
+                      <td>12</td>
+                      <td>20 </td>
+                      <td>60 </td>
+                      <td>8 </td>
+                      <td>6</td>
+                    </tr>
+                    <tr>
+                      <td>EHSUS610000S</td>
+                      <td>64,3 </td>
+                      <td> A012</td>
+                      <td>10 </td>
+                      <td>15</td>
+                      <td>25 </td>
+                      <td>75 </td>
+                      <td>10 </td>
+                      <td>6</td>
+                    </tr>
+                    <tr>
+                      <td>EHSUS612000S</td>
+                      <td>84,5 </td>
+                      <td>A012</td>
+                      <td>12 </td>
+                      <td>18</td>
+                      <td>30 </td>
+                      <td>75 </td>
+                      <td>12 </td>
+                      <td>6</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>EHSUS816000S</td>
+                      <td>189,6 </td>
+                      <td>A012</td>
+                      <td>16 </td>
+                      <td>24</td>
+                      <td>40 </td>
+                      <td>100 </td>
+                      <td>16 </td>
+                      <td>8</td>
+                    </tr>
+                    <tr>
+                      <td>EHSUS820000S</td>
+                      <td>277,9 </td>
+                      <td>A012</td>
+                      <td>20 </td>
+                      <td>30</td>
+                      <td>50 </td>
+                      <td>100 </td>
+                      <td>20 </td>
+                      <td>8</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><strong>EHSSH441000N</strong></td>
+                      <td>16,1 </td>
+                      <td> A012</td>
+                      <td>1 </td>
+                      <td>3</td>
+                      <td>-</td>
+                      <td>50 </td>
+                      <td>4 </td>
+                      <td>4</td>
+                    </tr>
+                    <tr>
+                      <td><strong>EHSSH441500N</strong></td>
+                      <td>16,1 </td>
+                      <td>A012</td>
+                      <td>2 </td>
+                      <td>4</td>
+                      <td>-</td>
+                      <td>50 </td>
+                      <td>4 </td>
+                      <td>4</td>
+                    </tr>
+                    <tr>
+                      <td><strong>EHSSH442000N</strong></td>
+                      <td>16,1 </td>
+                      <td>A012</td>
+                      <td>2 </td>
+                      <td>5</td>
+                      <td>-</td>
+                      <td>50 </td>
+                      <td>4 </td>
+                      <td>4</td>
+                    </tr>
+                    <tr>
+                      <td><strong>EHSSH442500N</strong></td>
+                      <td>16,1 </td>
+                      <td>A012</td>
+                      <td>3 </td>
+                      <td>6</td>
+                      <td>-</td>
+                      <td>50 </td>
+                      <td>4 </td>
+                      <td>4</td>
+                    </tr>
+                    <tr>
+                      <td><strong>EHSSH443000N</strong></td>
+                      <td>16,1 </td>
+                      <td>A012</td>
+                      <td>3 </td>
+                      <td>8</td>
+                      <td>-</td>
+                      <td>50 </td>
+                      <td>4 </td>
+                      <td>4</td>
+                    </tr>
+                    <tr>
+                      <td><strong>EHSSH444000N</strong></td>
+                      <td>16,1 </td>
+                      <td> A012</td>
+                      <td>4 </td>
+                      <td>10</td>
+                      <td>-</td>
+                      <td>50 </td>
+                      <td>4 </td>
+                      <td>4</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><strong>EHSUS441000N</strong></td>
+                      <td>16,1 </td>
+                      <td>A012</td>
+                      <td>1 </td>
+                      <td>1,5 </td>
+                      <td>2,5 </td>
+                      <td>50 </td>
+                      <td>4 </td>
+                      <td>4</td>
+                    </tr>
+                    <tr>
+                      <td><strong>EHSUS442000N</strong></td>
+                      <td>16,1 </td>
+                      <td>A012</td>
+                      <td>2 </td>
+                      <td>3 </td>
+                      <td>5 </td>
+                      <td>50 </td>
+                      <td>4 </td>
+                      <td>4</td>
+                    </tr>
+                    <tr>
+                      <td>EHSUS403000N</td>
+                      <td>22,8 </td>
+                      <td>A012</td>
+                      <td>3 </td>
+                      <td>4,5 </td>
+                      <td>7,5 </td>
+                      <td>50 </td>
+                      <td>6 </td>
+                      <td>4</td>
+                    </tr>
+                    <tr>
+                      <td>EHSUS404000N</td>
+                      <td>22,8 </td>
+                      <td> A012</td>
+                      <td>4 </td>
+                      <td>6 </td>
+                      <td>10 </td>
+                      <td>50 </td>
+                      <td>6 </td>
+                      <td>4</td>
+                    </tr>
+                    <tr>
+                      <td>EHSUS405000N</td>
+                      <td>22,8 </td>
+                      <td>A012</td>
+                      <td>5 </td>
+                      <td>7,5 </td>
+                      <td>12,5 </td>
+                      <td>50 </td>
+                      <td>6 </td>
+                      <td>4</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>EHSUS606000N</td>
+                      <td>22,8 </td>
+                      <td>A012</td>
+                      <td>6 </td>
+                      <td>9</td>
+                      <td>15 </td>
+                      <td>50 </td>
+                      <td>6 </td>
+                      <td>6</td>
+                    </tr>
+                    <tr>
+                      <td>EHSUS608000N</td>
+                      <td>41,8 </td>
+                      <td>A012</td>
+                      <td>8 </td>
+                      <td>12</td>
+                      <td>20 </td>
+                      <td>60 </td>
+                      <td>8 </td>
+                      <td>6</td>
+                    </tr>
+                    <tr>
+                      <td>EHSUS610000N</td>
+                      <td>64,3 </td>
+                      <td>A012</td>
+                      <td>10 </td>
+                      <td>15</td>
+                      <td>25 </td>
+                      <td>75 </td>
+                      <td>10 </td>
+                      <td>6</td>
+                    </tr>
+                    <tr>
+                      <td>EHSUS612000N</td>
+                      <td>84,5 </td>
+                      <td> A012</td>
+                      <td>12 </td>
+                      <td>18</td>
+                      <td>30 </td>
+                      <td>75 </td>
+                      <td>12 </td>
+                      <td>6</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>EHSUS816000N</td>
+                      <td>189,6 </td>
+                      <td>A012</td>
+                      <td>16 </td>
+                      <td>24</td>
+                      <td>40 </td>
+                      <td>100 </td>
+                      <td>16 </td>
+                      <td>8</td>
+                    </tr>
+                    <tr>
+                      <td>EHSUS820000N</td>
+                      <td>277,9 </td>
+                      <td>A012</td>
+                      <td>20 </td>
+                      <td>30</td>
+                      <td>50 </td>
+                      <td>100 </td>
+                      <td>20 </td>
+                      <td>8</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <h5>Image </h5><img class="lazyload" data-src="https://picsum.photos/1400/800" alt="placeholder">
+              <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+            </div>
+            <div class="col-lg-3">
+              <div class="aside-box rubricator-box">
+                <h6 class="rubricator-box__title">Категория</h6>
+                <div class="rubricator-box__content"><a class="rubricator-box__link active" href="#">Текстовая страница</a><a class="rubricator-box__link" href="#">Indexable Milling Tools
+                    <svg class="icon">
+                      <use xlink:href="./img/icons/icons.svg#caret-right"></use>
+                    </svg></a><a class="rubricator-box__link" href="#">Holemaking Tools
+                    <svg class="icon">
+                      <use xlink:href="./img/icons/icons.svg#caret-right"></use>
+                    </svg></a><a class="rubricator-box__link" href="#">Turning Tools
+                    <svg class="icon">
+                      <use xlink:href="./img/icons/icons.svg#caret-right"></use>
+                    </svg></a></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+      <footer class="footer">
+        <div class="container footer__container"><a class="logo footer__logo" href="./"><img src="./img/logos/logo2.png" alt="logo"></a>
+          <div class="footer__text"> <span>Copyright © 2008 — 2021 Winstar Cutting Technologies Corp. All rights reserved.</span></div>
+          <div class="socials footer__socials">
+            <ul class="socials__list">
+              <li class="socials__item"> <a class="socials__link" href="#">
+                  <svg class="icon">
+                    <use xlink:href="./img/icons/socials.svg#facebook"></use>
+                  </svg></a></li>
+              <li class="socials__item"> <a class="socials__link" href="#">
+                  <svg class="icon">
+                    <use xlink:href="./img/icons/socials.svg#instagram"></use>
+                  </svg></a></li>
+              <li class="socials__item"> <a class="socials__link" href="#">
+                  <svg class="icon">
+                    <use xlink:href="./img/icons/socials.svg#youtube"></use>
+                  </svg></a></li>
+            </ul>
+          </div><img class="footer__iso" src="./img/logos/iso9001ukas_logo.png" alt="iso">
+        </div>
+      </footer>
+    </div>
+    <!--scripts-->
+    <script src="./scripts/main.js"></script>
+    <!--preview only-->
+    <link rel="stylesheet" href="./styles/helper.css">
+    <div class="helper"><a class="helper__trigger" href="javascript:void(0);">
+        <svg class="icon" viewBox="0 0 100 100" fill="currentColor">
+          <g transform="translate(50 50)">
+            <g>
+              <animatetransform attributeName="transform" type="rotate" values="0;51.42857142857143" keyTimes="0;1" dur="0.6s" repeatCount="indefinite"></animatetransform>
+              <path d="M31.448370387032774 -10 L46.448370387032774 -10 L46.448370387032774 10 L31.448370387032774 10 A33 33 0 0 1 27.42605304607143 18.352428022310185 L27.42605304607143 18.352428022310185 L36.77840007395243 30.079900259330632 L21.141770424591833 42.5496962965053 L11.789423396710829 30.82222405948486 A33 33 0 0 1 2.7513583718916075 32.885103422513694 L2.7513583718916075 32.885103422513694 L-0.5864556374531071 47.509022105241044 L-20.085013881089584 43.05860342611476 L-16.74719987174487 28.434684743387407 A33 33 0 0 1 -23.995165273805295 22.654625211703866 L-23.995165273805295 22.654625211703866 L-37.50969829234158 29.16288129846724 L-46.18737307469275 11.143503940418853 L-32.67284005615647 4.635247853655478 A33 33 0 0 1 -32.67284005615647 -4.63524785365547 L-32.67284005615647 -4.63524785365547 L-46.18737307469276 -11.143503940418839 L-37.50969829234159 -29.162881298467227 L-23.995165273805302 -22.654625211703856 A33 33 0 0 1 -16.747199871744876 -28.434684743387404 L-16.747199871744876 -28.434684743387404 L-20.085013881089594 -43.05860342611476 L-0.5864556374531196 -47.509022105241044 L2.751358371891599 -32.885103422513694 A33 33 0 0 1 11.78942339671082 -30.82222405948486 L11.78942339671082 -30.82222405948486 L21.141770424591822 -42.54969629650531 L36.778400073952426 -30.079900259330635 L27.426053046071427 -18.35242802231019 A33 33 0 0 1 31.448370387032774 -10.000000000000009 M0 -20A20 20 0 1 0 0 20 A20 20 0 1 0 0 -20"></path>
+            </g>
+          </g>
+        </svg></a>
+      <div class="helper__container">
+        <!--section-->
+        <div class="helper__section"><span class="helper__section-title">Страницы:</span>
+          <div class="helper__section-content"><a class="helper__section-button" href="index.html">Главная</a><a class="helper__section-button" href="contacts.html">Контакты</a>
+            <!--a(href="typography.html").helper__section-button Типографика--><a class="helper__section-button" href="textpage.html">Текстовая страница</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./scripts/helper.js"></script>
+  </body>
+</html>

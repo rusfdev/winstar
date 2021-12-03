@@ -1,11 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400&display=swap");
 .helper {
+  --window-safe-height: var(--window-safe-height-property, 100vh);
   font-family: "Roboto", sans-serif;
   position: fixed;
   z-index: 10000;
   left: 0;
-  top: 50%;
+  top: calc(var(--window-safe-height) / 2);
   transform: translate(-100%, -50%);
   transition: transform 0.25s ease-in-out;
   width: 100%;

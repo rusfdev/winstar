@@ -1,2 +1,100 @@
 header.header
-  
+  .header__top
+    .container.header__top-container 
+      a(href="#").logo.header__logo
+        img(src="./img/logos/logo.png", alt="logo")
+
+      .header__slogan Endmills, Drills, Inserts Manufacturer
+
+      .socials.header__socials  
+        ul.socials__list 
+          li.socials__item 
+            a(href="#").socials__link
+              svg.icon
+                use(xlink:href='./img/icons/socials.svg#facebook')
+          li.socials__item 
+            a(href="#").socials__link
+              svg.icon
+                use(xlink:href='./img/icons/socials.svg#instagram')
+          li.socials__item 
+            a(href="#").socials__link
+              svg.icon
+                use(xlink:href='./img/icons/socials.svg#youtube')
+
+        
+
+
+nav.header-nav 
+  .container.header-nav__container
+    .header-search
+      form(action="#").header-search__form
+        button.header-search__submit 
+          svg.icon
+            use(xlink:href='./img/icons/icons.svg#magnifying-glass')
+        input(type="text" placeholder="Поиск").header-search__input 
+
+      button(type="button").header-search__trigger 
+        svg.icon
+          use(xlink:href='./img/icons/icons.svg#magnifying-glass')
+        svg.icon
+          use(xlink:href='./img/icons/icons.svg#close')
+
+    ul.header-nav__list 
+      li.header-nav__item 
+        a(href=page=='main'?'javascript:void(0);':'./' class=page=='main'?'active':'').header-nav__link Главная
+      
+      li.header-nav__item(data-custom-interaction) 
+        a(href="#").header-nav__link Продукты
+          svg.icon
+            use(xlink:href='./img/icons/icons.svg#caret-bottom')
+        ul.header-nav__sub-list
+          li.header-nav__sub-item 
+            a(href="#").header-nav__sub-link End mill 
+          li.header-nav__sub-item 
+            a(href="#").header-nav__sub-link Milling inserts
+          li.header-nav__sub-item 
+            a(href="#").header-nav__sub-link Milling holder
+          li.header-nav__sub-item 
+            a(href="#").header-nav__sub-link Drills & Reamersa
+          li.header-nav__sub-item 
+            a(href="#").header-nav__sub-link Drills inserts & holder & Borin
+          li.header-nav__sub-item 
+            a(href="#").header-nav__sub-link Turning & holder & other
+          li.header-nav__sub-item 
+            a(href="#").header-nav__sub-link Accessories
+
+
+      li.header-nav__item 
+        a(href="#").header-nav__link Новости
+
+      li.header-nav__item(data-custom-interaction) 
+        a(href="#").header-nav__link Индивидуальное производство
+          svg.icon
+            use(xlink:href='./img/icons/icons.svg#caret-bottom')
+        ul.header-nav__sub-list 
+          li.header-nav__sub-item 
+            a(href="#").header-nav__sub-link Customized Carbide End Mills Manufacturing
+          li.header-nav__sub-item 
+            a(href="#").header-nav__sub-link Customized Carbide Inserts Manufacturing
+          li.header-nav__sub-item 
+            a(href="#").header-nav__sub-link Customized Carbide Drills Manufacturing
+
+
+      li.header-nav__item 
+        a(href="#").header-nav__link Загрузки 
+      li.header-nav__item 
+        a(href="#").header-nav__link Видео
+      li.header-nav__item 
+        a(href="#").header-nav__link О нас
+      li.header-nav__item 
+        a(href="#").header-nav__link 
+          span Контакты
+      
+    
+    .lang-toggle
+      button.lang-toggle__selected ru
+      .lang-toggle__langs 
+        a(href="./").lang-toggle__lang en
+
+
+

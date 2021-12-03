@@ -1,0 +1,15 @@
+.breadcrumbs
+  .container.breadcrumbs__container
+    ul.breadcrumbs__list
+      -var index = 0
+      each val in breadcrumbs
+        if index < breadcrumbs.length - 1
+          li.breadcrumbs__item
+            a(href='#').breadcrumbs__link.link
+              span #{val}
+            svg.icon
+              use(xlink:href='./img/icons/icons.svg#caret-right')
+        else 
+          li.breadcrumbs__item
+            span=val    
+        -index++
