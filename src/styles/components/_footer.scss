@@ -4,6 +4,7 @@
   padding: 30px 0;
   line-height: 1.5;
   font-size: 14px;
+  overflow: hidden;
   &__container {
     display: flex;
     align-items: center;
@@ -28,5 +29,16 @@
     --gap: 10px;
     --color: #fff;
     --color-hover: rgba(255, 255, 255, 0.8);
+  }
+
+  @include media-breakpoint-down(lg) {
+    &__container {
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+    &__text {
+      flex: 1 0 100%;
+      order: 4;
+    }
   }
 }

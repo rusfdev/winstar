@@ -2,6 +2,7 @@
   --global-font-family: 'Noto Sans', sans-serif;
   --global-font-size: 16px;
   --global-line-height: 1.75;
+  --normal-line-height: 1.5;
 }
 
 
@@ -172,5 +173,10 @@ a:not([class]), .link {
 
   &:last-child {
     margin-bottom: 0;
+  }
+
+  @include media-breakpoint-down(sm) {
+    margin: 0 calc(var(--container-padding-x) * -1);
+    font-size: 14px;
   }
 }

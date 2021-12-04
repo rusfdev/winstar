@@ -24,91 +24,130 @@
     <!--styles-->
     <link rel="stylesheet" href="./styles/theme.css">
     <link rel="stylesheet" href="./styles/main.css">
-    <!--test-->
-    <script src="./scripts/test-device.js"></script>
   </head>
   <body>
+    <!--test-->
+    <script src="./scripts/test-device.js"></script>
     <div class="wrapper">
       <header class="header">
-        <div class="header__top">
-          <div class="container header__top-container"> <a class="logo header__logo" href="#"><img src="./img/logos/logo.png" alt="logo"></a>
-            <div class="header__slogan">Endmills, Drills, Inserts Manufacturer</div>
-            <div class="socials header__socials">
-              <ul class="socials__list">
-                <li class="socials__item"> <a class="socials__link" href="#">
-                    <svg class="icon">
-                      <use xlink:href="./img/icons/socials.svg#facebook"></use>
-                    </svg></a></li>
-                <li class="socials__item"> <a class="socials__link" href="#">
-                    <svg class="icon">
-                      <use xlink:href="./img/icons/socials.svg#instagram"></use>
-                    </svg></a></li>
-                <li class="socials__item"> <a class="socials__link" href="#">
-                    <svg class="icon">
-                      <use xlink:href="./img/icons/socials.svg#youtube"></use>
-                    </svg></a></li>
-              </ul>
-            </div>
+        <div class="container header__container"> <a class="logo header__logo" href="#"><img src="./img/logos/logo.png" alt="logo"></a>
+          <div class="header__slogan">Endmills, Drills, Inserts Manufacturer</div>
+          <div class="header-lang header__lang">
+            <ul class="header-lang__list">
+              <li class="header-lang__item"> <a class="header-lang__link active" href="javascript:void(0);">ru</a></li>
+              <li class="header-lang__item"> <a class="header-lang__link" href="#">en</a></li>
+            </ul>
           </div>
         </div>
       </header>
       <nav class="header-nav">
-        <div class="container header-nav__container">
-          <div class="header-search">
+        <div class="header-nav__wrapper">
+          <div class="container header-nav__container"><a class="mobile-nav-trigger" href="#mobile-nav" data-action="Modal:open">
+              <svg class="icon">
+                <use xlink:href="./img/icons/icons.svg#equals"></use>
+              </svg></a>
+            <div class="header-nav__content">
+              <div class="header-lang header-nav__lang">
+                <ul class="header-lang__list">
+                  <li class="header-lang__item"> <a class="header-lang__link active" href="javascript:void(0);">ru</a></li>
+                  <li class="header-lang__item"> <a class="header-lang__link" href="#">en</a></li>
+                </ul>
+              </div>
+              <ul class="header-nav__list">
+                <li class="header-nav__item"> <a class="active header-nav__link" href="javascript:void(0);">Главная</a></li>
+                <li class="header-nav__item" data-custom-interaction> <a class="header-nav__link" href="#">Продукты
+                    <svg class="icon">
+                      <use xlink:href="./img/icons/icons.svg#caret-bottom"></use>
+                    </svg></a>
+                  <ul class="header-nav__sub-list">
+                    <li class="header-nav__sub-item"> <a class="header-nav__sub-link" href="#">End mill </a></li>
+                    <li class="header-nav__sub-item"> <a class="header-nav__sub-link" href="#">Milling inserts</a></li>
+                    <li class="header-nav__sub-item"> <a class="header-nav__sub-link" href="#">Milling holder</a></li>
+                    <li class="header-nav__sub-item"> <a class="header-nav__sub-link" href="#">Drills & Reamersa</a></li>
+                    <li class="header-nav__sub-item"> <a class="header-nav__sub-link" href="#">Drills inserts & holder & Borin</a></li>
+                    <li class="header-nav__sub-item"> <a class="header-nav__sub-link" href="#">Turning & holder & other</a></li>
+                    <li class="header-nav__sub-item"> <a class="header-nav__sub-link" href="#">Accessories</a></li>
+                  </ul>
+                </li>
+                <li class="header-nav__item"> <a class="header-nav__link" href="#">Новости</a></li>
+                <li class="header-nav__item" data-custom-interaction> <a class="header-nav__link" href="#">Индивидуальное производство
+                    <svg class="icon">
+                      <use xlink:href="./img/icons/icons.svg#caret-bottom"></use>
+                    </svg></a>
+                  <ul class="header-nav__sub-list">
+                    <li class="header-nav__sub-item"> <a class="header-nav__sub-link" href="#">Customized Carbide End Mills Manufacturing</a></li>
+                    <li class="header-nav__sub-item"> <a class="header-nav__sub-link" href="#">Customized Carbide Inserts Manufacturing</a></li>
+                    <li class="header-nav__sub-item"> <a class="header-nav__sub-link" href="#">Customized Carbide Drills Manufacturing</a></li>
+                  </ul>
+                </li>
+                <li class="header-nav__item"> <a class="header-nav__link" href="#">Загрузки </a></li>
+                <li class="header-nav__item"> <a class="header-nav__link" href="#">Видео</a></li>
+                <li class="header-nav__item"> <a class="header-nav__link" href="#">О нас</a></li>
+                <li class="header-nav__item"> <a class="header-nav__link" href="#"> <span>Контакты</span></a></li>
+                <li class="header-nav__item header-nav__search-toggle">
+                  <button class="header-search-toggle" type="button">
+                    <div class="header-search-toggle__icon">
+                      <svg class="icon">
+                        <use xlink:href="./img/icons/icons.svg#magnifying-glass"></use>
+                      </svg>
+                      <svg class="icon">
+                        <use xlink:href="./img/icons/icons.svg#close"></use>
+                      </svg>
+                    </div><span>Поиск</span>
+                  </button>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="header-search">
+          <div class="container header-search__container">
             <form class="header-search__form" action="#">
               <button class="header-search__submit">
                 <svg class="icon">
                   <use xlink:href="./img/icons/icons.svg#magnifying-glass"></use>
                 </svg>
               </button>
-              <input class="header-search__input" type="text" placeholder="Поиск">
+              <input class="header-search__input" type="text" placeholder="Поиск...">
             </form>
-            <button class="header-search__trigger" type="button">
-              <svg class="icon">
-                <use xlink:href="./img/icons/icons.svg#magnifying-glass"></use>
-              </svg>
-              <svg class="icon">
-                <use xlink:href="./img/icons/icons.svg#close"></use>
-              </svg>
-            </button>
-          </div>
-          <ul class="header-nav__list">
-            <li class="header-nav__item"> <a class="active header-nav__link" href="javascript:void(0);">Главная</a></li>
-            <li class="header-nav__item" data-custom-interaction> <a class="header-nav__link" href="#">Продукты
-                <svg class="icon">
-                  <use xlink:href="./img/icons/icons.svg#caret-bottom"></use>
-                </svg></a>
-              <ul class="header-nav__sub-list">
-                <li class="header-nav__sub-item"> <a class="header-nav__sub-link" href="#">End mill </a></li>
-                <li class="header-nav__sub-item"> <a class="header-nav__sub-link" href="#">Milling inserts</a></li>
-                <li class="header-nav__sub-item"> <a class="header-nav__sub-link" href="#">Milling holder</a></li>
-                <li class="header-nav__sub-item"> <a class="header-nav__sub-link" href="#">Drills & Reamersa</a></li>
-                <li class="header-nav__sub-item"> <a class="header-nav__sub-link" href="#">Drills inserts & holder & Borin</a></li>
-                <li class="header-nav__sub-item"> <a class="header-nav__sub-link" href="#">Turning & holder & other</a></li>
-                <li class="header-nav__sub-item"> <a class="header-nav__sub-link" href="#">Accessories</a></li>
-              </ul>
-            </li>
-            <li class="header-nav__item"> <a class="header-nav__link" href="#">Новости</a></li>
-            <li class="header-nav__item" data-custom-interaction> <a class="header-nav__link" href="#">Индивидуальное производство
-                <svg class="icon">
-                  <use xlink:href="./img/icons/icons.svg#caret-bottom"></use>
-                </svg></a>
-              <ul class="header-nav__sub-list">
-                <li class="header-nav__sub-item"> <a class="header-nav__sub-link" href="#">Customized Carbide End Mills Manufacturing</a></li>
-                <li class="header-nav__sub-item"> <a class="header-nav__sub-link" href="#">Customized Carbide Inserts Manufacturing</a></li>
-                <li class="header-nav__sub-item"> <a class="header-nav__sub-link" href="#">Customized Carbide Drills Manufacturing</a></li>
-              </ul>
-            </li>
-            <li class="header-nav__item"> <a class="header-nav__link" href="#">Загрузки </a></li>
-            <li class="header-nav__item"> <a class="header-nav__link" href="#">Видео</a></li>
-            <li class="header-nav__item"> <a class="header-nav__link" href="#">О нас</a></li>
-            <li class="header-nav__item"> <a class="header-nav__link" href="#"> <span>Контакты</span></a></li>
-          </ul>
-          <div class="lang-toggle">
-            <button class="lang-toggle__selected">ru</button>
-            <div class="lang-toggle__langs"> <a class="lang-toggle__lang" href="./">en</a></div>
           </div>
         </div>
+      </nav>
+      <nav class="mobile-nav" id="mobile-nav">
+        <div class="mobile-nav__container" data-scroll-lock-scrollable>
+          <button class="mobile-nav__close" data-action="Modal:close">
+            <svg class="icon">
+              <use xlink:href="./img/icons/icons.svg#close"></use>
+            </svg>
+          </button>
+          <ul class="mobile-nav__list">
+            <li class="mobile-nav__item"> <a class="active mobile-nav__link" href="javascript:void(0);">Главная</a></li>
+            <li class="mobile-nav__item"> <a class="mobile-nav__link" href="#">Продукты</a>
+              <ul class="mobile-nav__sub-list">
+                <li class="mobile-nav__sub-item"> <a class="mobile-nav__sub-link" href="#">End mill </a></li>
+                <li class="mobile-nav__sub-item"> <a class="mobile-nav__sub-link" href="#">Milling inserts</a></li>
+                <li class="mobile-nav__sub-item"> <a class="mobile-nav__sub-link" href="#">Milling holder</a></li>
+                <li class="mobile-nav__sub-item"> <a class="mobile-nav__sub-link" href="#">Drills & Reamersa</a></li>
+                <li class="mobile-nav__sub-item"> <a class="mobile-nav__sub-link" href="#">Drills inserts & holder & Borin</a></li>
+                <li class="mobile-nav__sub-item"> <a class="mobile-nav__sub-link" href="#">Turning & holder & other</a></li>
+                <li class="mobile-nav__sub-item"> <a class="mobile-nav__sub-link" href="#">Accessories</a></li>
+              </ul>
+            </li>
+            <li class="mobile-nav__item"> <a class="mobile-nav__link" href="#">Новости</a></li>
+            <li class="mobile-nav__item"> <a class="mobile-nav__link" href="#">Индивидуальное производство</a>
+              <ul class="mobile-nav__sub-list">
+                <li class="mobile-nav__sub-item"> <a class="mobile-nav__sub-link" href="#">Customized Carbide End Mills Manufacturing</a></li>
+                <li class="mobile-nav__sub-item"> <a class="mobile-nav__sub-link" href="#">Customized Carbide Inserts Manufacturing</a></li>
+                <li class="mobile-nav__sub-item"> <a class="mobile-nav__sub-link" href="#">Customized Carbide Drills Manufacturing</a></li>
+              </ul>
+            </li>
+            <li class="mobile-nav__item"> <a class="mobile-nav__link" href="#">Загрузки </a></li>
+            <li class="mobile-nav__item"> <a class="mobile-nav__link" href="#">Видео</a></li>
+            <li class="mobile-nav__item"> <a class="mobile-nav__link" href="#">О нас</a></li>
+            <li class="mobile-nav__item"> <a class="mobile-nav__link" href="./contacts.html"> <span>Контакты</span></a></li>
+          </ul>
+        </div>
+        <div class="mobile-nav__overlay" data-action="Modal:close"></div>
       </nav>
       <main class="main">
       </main>

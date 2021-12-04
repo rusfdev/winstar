@@ -8,6 +8,8 @@
   --page-width: calc(100vw - var(--scrollbar-width));
   --content-width: calc(var(--container-width) - var(--container-padding-x) * 2);
   --content-fields-width: calc((var(--page-width) - var(--content-width)) / 2);
+
+  --sticky-elements-safe-top: var(--header-fixed-height);
   
   @include media-breakpoint-up(xxl) {
     --container-width: #{map-get($container-max-widths, xxl)};
@@ -42,4 +44,7 @@
 
   //header
   --header-fixed-height: 50px;
+  @include media-breakpoint-down(xl) {
+    --header-fixed-height: 60px;
+  }
 }

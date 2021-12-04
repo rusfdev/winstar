@@ -1,11 +1,8 @@
 .header {
-  //position: fixed;
+  line-height: var(--normal-line-height);
   width: var(--page-width);
-  &__top {
-    background-color: #fff;
-    padding: 15px 0 20px 0;
-  }
-  &__top-container {
+  padding: 15px 0 20px 0;
+  &__container {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -15,85 +12,130 @@
     text-align: center;
     font-family: 'Charmonman', cursive;
     font-size: 20px;
-    line-height: 34px;
     color: var(--color-main-alternate);
     padding-top: 30px;
-  }
-  &__socials {
-    flex: 0 0 auto;
-    padding-top: 30px;
-    --size: 34px;
-    --gap: 10px;
-    --color: var(--color-main);
-    --color-hover: var(--color-main-medium);
   }
   &__logo {
     height: 80px;
     flex: 0 0 auto;
   }
+  &__lang {
+    padding-top: 30px;
+  }
+  @include media-breakpoint-down(xl) {
+    &__lang, &__slogan {
+      padding-top: 24px;
+    }
+    &__logo {
+      height: 60px;
+    }
+  }
+  @include media-breakpoint-down(md) {
+    &__lang {
+      display: none;
+    }
+    &__slogan {
+      text-align: right;
+    }
+  }
+  @include media-breakpoint-down(sm) {
+    padding: 15px 0;
+    &__container {
+      flex-direction: column;
+    }
+    &__slogan {
+      padding: 0;
+      font-size: 18px;
+      text-align: center;
+      margin-top: 15px;
+    }
+  }
 }
 
 .header-nav {
+  --line-height: 20px;
   --height: var(--header-fixed-height);
-  background-color: var(--color-main);
   color: #fff;
   font-size: 14px;
   position: sticky;
-  z-index: 10000;
+  z-index: 1000;
   top: 0;
-  &__container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  &__wrapper {
+    background-color: var(--color-main);
+    position: relative;
+    z-index: 2;
+    height: var(--height);
   }
   &__list {
     display: flex;
-    flex: 0 0 auto;
-    position: relative;
-    z-index: 2;
   }
   &__item {
+    --sub-nav-opacity: 0;
+    --sub-nav-visibility: hidden;
+    --link-bg: transparent;
+    flex: 1 1 auto;
     position: relative;
+    &:not(:first-child) {
+      margin-left: -1px;
+    }
+    &::before, &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: calc((var(--height) - var(--line-height)) / 2);
+      height: var(--line-height);
+      width: 1px;
+      background-color: var(--color-main-medium);
+    }
+    &::before {
+      left: 0;
+    }
+    &::after {
+      right: 0;
+    }
     &[data-touch], &[data-hover] {
-      .header-nav__link {
-        background-color: var(--color-main-medium);
-      }
-      .header-nav__sub-list {
-        opacity: 1;
-        visibility: visible;
-      }
+      --sub-nav-opacity: 1;
+      --sub-nav-visibility: visible;
+      --link-bg: var(--color-main-medium);
     }
   }
   &__link {
     display: flex;
     align-items: center;
+    justify-content: center;
     line-height: var(--height);
-    line-height: 20px;
+    line-height: var(--line-height);
     text-transform: uppercase;
-    padding: calc((var(--height) - 20px) / 2) calc(var(--grid-gutter-width) / 2);
-    gap: 4px;
+    text-align: center;
+    padding: calc((var(--height) - var(--line-height)) / 2) 0;
+    gap: 6px;
+    background-color: var(--link-bg);
+    position: relative;
+    z-index: 2;
     transition: background-color var(--trs-1);
     .icon {
-      width: 12px;
-      height: 12px;
+      width: 14px;
+      height: 14px;
     }
     &[data-touch], &[data-hover] {
-      background-color: var(--color-main-medium);
+      --link-bg: var(--color-main-medium);
     }
     &.active {
-      background-color: var(--color-main-alternate);
+      --link-bg: var(--color-main-alternate);
       cursor: default;
     }
   }
+
   &__sub-list {
     position: absolute;
+    z-index: 2;
     top: 100%;
     left: 0;
-    min-width: 200px;
+    min-width: calc(max(200px, 100%));
     background-color: var(--color-main-medium);
     padding: 10px 0;
-    opacity: 0;
-    visibility: hidden;
+    opacity: var(--sub-nav-opacity);
+    visibility: var(--sub-nav-visibility);
     transition: opacity var(--trs-1), visibility var(--trs-1);
   }
   &__sub-link {
@@ -106,42 +148,161 @@
       background-color: var(--color-main);
     }
   }
+  @include media-breakpoint-up(md) {
+    &__lang {
+      display: none;
+    }
+  }
+  @include media-breakpoint-down(xl) {
+    &__item:not(.header-nav__search-toggle) {
+      display: none;
+    }
+    &__container {
+      display: flex;
+      justify-content: space-between;
+    }
+    &__search-toggle {
+      flex: 0 0 auto;
+      margin: 0;
+      &::before, &::after {
+        display: none;
+      }
+    }
+  }
+  @include media-breakpoint-down(lg) {
+    font-size: 16px;
+  }
+  @include media-breakpoint-down(md) {
+    &__content {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+  }
+  @include media-breakpoint-down(sm) {
+    &__container {
+      padding: 0;
+    }
+  }
+}
+
+.header-search-toggle {
+  --icon-size: 18px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  height: var(--height);
+  text-transform: uppercase;
+  transition: background-color var(--trs-1);
+  &__icon {
+    width: var(--icon-size);
+    height: var(--icon-size);
+    position: relative;
+  }
+  .icon {
+    width: 100%;
+    height: 100%;
+    transition: opacity var(--trs-1);
+    &:last-child {
+      position: absolute;
+      opacity: 0;
+      top: 0;
+      left: 0;
+    }
+  }
+  &[data-touch], &[data-hover], &.active {
+    background-color: var(--color-main-medium);
+  }
+  &.active {
+    .icon {
+      &:first-child {
+        opacity: 0;
+      }
+      &:last-child {
+        opacity: 1;
+      }
+    }
+  }
+  @include media-breakpoint-down(xl) {
+    padding: 0 16px;
+    background-color: var(--color-main-medium);
+    &[data-touch], &[data-hover] {
+      background-color: var(--color-main-alternate);
+    }
+  }
+  @include media-breakpoint-down(xl) {
+    gap: 10px;
+    --icon-size: 20px;
+  }
+  @include media-breakpoint-down(sm) {
+    padding: 0 var(--container-padding-x);
+    background-color: transparent;
+    &[data-touch], &[data-hover] {
+      background-color: var(--color-main-medium);
+    }
+  }
+}
+
+.mobile-nav-trigger {
+  @include media-breakpoint-up(xl) {
+    display: none;
+  }
+  @include media-breakpoint-down(xl) {
+    --icon-size: 28px;
+    width: var(--height);
+    height: var(--height);
+    padding: calc((var(--height) - var(--icon-size)) / 2);
+    background-color: var(--color-main-medium);
+    transition: background-color var(--trs-1);
+    .icon {
+      width: calc(100% + 8px);
+      height: calc(100% + 8px);
+      margin: -4px;
+    }
+    &[data-touch], &[data-hover] {
+      background-color: var(--color-main-alternate);
+    }
+  }
+  @include media-breakpoint-down(sm) {
+    background-color: transparent;
+    &[data-touch], &[data-hover] {
+      background-color: var(--color-main-medium);
+    }
+  }
 }
 
 .header-search {
-  --icon-size: 20px;
-  flex: 0 0 auto;
-  display: flex;
-  transition: background-color var(--trs-1);
-  position: relative;
+  --icon-size: 18px;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: var(--color-main-medium);
+  transform: translateY(-100%);
+  transition: transform var(--trs-1);
+  &.active {
+    transform: translateY(0);
+  }
   &__form {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 300px;
-    opacity: 0;
-    visibility: hidden;
+    transform: translateY(var(--form-translate));
     display: flex;
-    background-color: var(--color-main-medium);
-    transition: opacity var(--trs-1), visibility var(--trs-1);
-    &.active {
-      opacity: 1;
-      visibility: visible;
-    }
+    transition: transform var(--trs-1);
   }
   &__submit {
     flex: 0 0 auto;
     display: flex;
     width: var(--height);
     height: var(--height);
-    transition: background-color var(--trs-1);
+    transition: color var(--trs-1);
     .icon {
       width: var(--icon-size);
       height: var(--icon-size);
       margin: auto;
     }
     &[data-touch], &[data-hover] {
-      background-color: var(--color-main);
+      color: var(--color-main-alternate);
     }
   }
   &__input {
@@ -149,7 +310,6 @@
     width: 100%;
     height: var(--height);
     line-height: var(--height);
-    padding: 0 15px;
     color: #fff;
     &::placeholder {
       color: #fff;
@@ -162,83 +322,154 @@
       }
     }
   }
-  &__trigger {
-    flex: 0 0 auto;
-    display: flex;
-    width: var(--height);
-    height: var(--height);
-    transition: background-color var(--trs-1);
-    position: relative;
-    .icon {
-      width: var(--icon-size);
-      height: var(--icon-size);
-      margin: auto;
-      transition: opacity var(--trs-1);
-      &:last-child {
-        position: absolute;
-        top: calc((var(--height) - var(--icon-size)) / 2);
-        left: calc((var(--height) - var(--icon-size)) / 2);
-        opacity: 0;
-      }
-    }
-    &[data-touch], &[data-hover] {
-      background-color: var(--color-main-medium);
-    }
-    &.active {
-      background-color: var(--color-main-medium);
-      .icon {
-        &:first-child {
-          opacity: 0;
-        }
-        &:last-child {
-          opacity: 1;
-        }
-      }
+  @include media-breakpoint-down(lg) {
+    --icon-size: 22px;
+  }
+  @include media-breakpoint-down(sm) {
+    &__container {
+      padding-left: 0;
     }
   }
 }
 
-.lang-toggle {
-  flex: 0 0 auto;
-  position: relative;
-  &__selected {
-    height: var(--height);
-    width: var(--height);
-    transition: background-color var(--trs-1);
-    text-transform: uppercase;
-    text-align: center;
-    line-height: var(--height);
-    &[data-touch], &[data-hover] {
-      background-color: var(--color-main-medium);
-    }
-    &.active {
-      background-color: var(--color-main-medium);
+.header-lang {
+  &__list {
+    display: flex;
+  }
+  &__item {
+    &:not(:last-child) {
+      &::after {
+        content: '|';
+        display: inline-block;
+        margin: 0 5px;
+      }
     }
   }
-  &__langs {
+  &__link {
+    text-transform: uppercase;
+    transition: color var(--trs-1);
+    &[data-touch], &[data-hover] {
+      color: var(--color-main-alternate);
+    }
+    &.active {
+      font-weight: 700;
+      color: var(--color-main-alternate);
+      cursor: default;
+    }
+  }
+}
+
+.mobile-nav {
+  @include media-breakpoint-up(xl) {
+    display: none !important;
+  }
+  @include media-breakpoint-down(xl) {
+    line-height: var(--normal-line-height);
+    display: none;
+    position: fixed;
+    z-index: 2000;
     width: 100%;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity var(--trs-1), visibility var(--trs-1);
-    &.active {
-      opacity: 1;
-      visibility: visible;
+    height: 100%;
+    &__overlay {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background-color: var(--color-overlay);
+    }
+    &__container {
+      height: 100%;
+      overflow-y: auto;
+      overflow-x: hidden;
+      position: relative;
+      z-index: 2;
+      background-color: var(--color-main);
+      color: #fff;
+      max-width: 360px;
+    }
+    &__close {
+      --icon-size: 28px;
+      width: var(--header-fixed-height);
+      height: var(--header-fixed-height);
+      padding: calc((var(--header-fixed-height) - var(--icon-size)) / 2);
+      background-color: var(--color-main-medium);
+      position: sticky;
+      top: 0;
+      margin: 0 0 0 auto;
+      transition: background-color var(--trs-1);
+      .icon {
+        width: 100%;
+        height: 100%;
+      }
+      &[data-touch], &[data-hover] {
+        background-color: var(--color-main-alternate);
+      }
+    }
+
+    &__list {
+      --item-py: 12px;
+      --px: 20px;
+      padding-bottom: var(--header-fixed-height);
+    }
+    &__link {
+      display: block;
+      padding: var(--item-py) var(--px);
+      transition: background-color var(--trs-1);
+      font-size: 18px;
+      &[data-touch], &[data-hover] {
+        background-color: var(--color-main-medium);
+      }
+      &.active {
+        cursor: default;
+        background-color: var(--color-main-alternate);
+      }
+    }
+    &__sub-list {
+      --item-py: 6px;
+      --py: 10px;
+      --px: 20px;
+      padding: 10px var(--px);
+      position: relative;
+      &::before {
+        content: '';
+        display: block;
+        width: 2px;
+        height: calc(100% - var(--py) * 2 - var(--item-py) * 2);
+        top: calc(var(--py) + var(--item-py));
+        left: var(--px);
+        position: absolute;
+        background-color: var(--color-main-medium);
+      }
+    }
+    &__sub-link {
+      padding: var(--item-py) 0 var(--item-py) var(--px);
+      display: block;
+      transition: color var(--trs-1);
+      &[data-touch], &[data-hover] {
+        color: var(--color-main-alternate);
+      }
+      &.active {
+        cursor: default;
+        background-color: var(--color-main-alternate);
+      }
     }
   }
-  &__lang {
-    display: block;
-    height: var(--height);
-    width: var(--height);
-    text-transform: uppercase;
-    text-align: center;
-    line-height: var(--height);
-    background-color: var(--color-main-medium);
-    transition: background-color var(--trs-1);
-    &[data-touch], &[data-hover] {
-      background-color: var(--color-main);
+  @include media-breakpoint-down(sm) {
+    &__container {
+      max-width: 300px;
+    }
+    &__sub-list {
+      --px: var(--container-padding-x);
+    }
+    &__list {
+      --px: var(--container-padding-x);
+    }
+    &__close {
+      background-color: transparent;
+      &[data-touch], &[data-hover] {
+        background-color: var(--color-main-medium);
+      }
     }
   }
 }
