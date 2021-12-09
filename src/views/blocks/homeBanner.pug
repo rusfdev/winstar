@@ -1,0 +1,36 @@
+section.section.home-slider
+  .swiper
+    .swiper-wrapper
+      //slide
+      .home-slider-slide.swiper-slide
+        .home-slider-slide__image.image.image_cover
+          img(data-src="./img/banner-1.jpeg", alt="image").swiper-lazy
+        a(href="#").home-slider-slide__link
+        .home-slider-slide__text
+          .container 
+            h2.home-slider-slide__title Metal Working Tools 
+            h3.home-slider-slide__sub-title Officiis, dolorum ipsam obcaecati atque.
+      //slide
+      .home-slider-slide.swiper-slide
+        .home-slider-slide__image.image.image_cover
+          img(data-src="./img/banner-3.jpeg", alt="image").swiper-lazy
+      //slide
+      .home-slider-slide.swiper-slide
+        .home-slider-slide__image.image.image_cover
+          img(data-src="./img/banner-2.jpeg", alt="image").swiper-lazy
+        .home-slider-slide__text
+          .container 
+            h2.home-slider-slide__title Metal Working Tools 
+            h3.home-slider-slide__sub-title Officiis, dolorum ipsam obcaecati atque.
+        
+        
+        
+
+  .swiper-button.swiper-button-prev
+    svg.icon
+      use(xlink:href='./img/icons/icons.svg#caret-left')
+  .swiper-button.swiper-button-next
+    svg.icon
+      use(xlink:href='./img/icons/icons.svg#caret-right')
+
+  .swiper-pagination

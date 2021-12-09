@@ -6,4 +6,53 @@ block variables
   
 block content
 
+  include blocks/homeBanner
   
+  section.section 
+    .container 
+      .mb-30
+        h2 Продукты
+
+      .d-grid.grid-columns-sm-2.grid-columns-xl-4.column-gap-grid.row-gap-20.row-gap-md-30
+
+        +product-card('./img/np_W210901E_V520andV530B.jpeg', 'End mill')
+        +product-card('./img/np_W210901E_V520andV530B.jpeg', 'Milling inserts')
+        +product-card('./img/np_W210901E_V520andV530B.jpeg', 'Milling holder')
+        +product-card('./img/np_W210901E_V520andV530B.jpeg', 'Drills & Reamersa')
+        +product-card('./img/np_W210901E_V520andV530B.jpeg', 'Drills inserts & holder & Borin')
+        +product-card('./img/np_W210901E_V520andV530B.jpeg', 'Turning & holder & other')
+        +product-card('./img/np_W210901E_V520andV530B.jpeg', 'Accessories')
+
+
+  section.section 
+    .container 
+      .mb-30
+        h2 Последние новости
+
+      .d-grid.grid-columns-sm-2.grid-columns-xl-5.column-gap-grid.row-gap-20.row-gap-md-30
+
+        +news-card('Notice for the Revision of Product Package Label and Format')
+        +news-card('2019 The 22th China Dongguan International Mould and Metalworking Exhibition')
+        +news-card('2019 EMO Hannover')
+        +news-card('2019 The 9th Philippine Die & Mould, Machineries and Equipment & Tools Exhibition(PDMEX)')
+        +news-card('2019 EMO Hannover')
+
+      .mt-30.d-flex.justify-content-start
+        a(href="#").button.button_style-1 Смотреть больше
+
+  section.section
+    .container 
+      .mb-30
+        h2 Недавние посты в Инстаграм
+
+      .d-grid.grid-columns-sm-2.grid-columns-xl-3.column-gap-grid.row-gap-grid
+
+        +insta-post()
+        +insta-post()
+        +insta-post()
+        +insta-post()
+        +insta-post()
+        +insta-post()
+
+      .mt-30.d-flex.justify-content-start
+        a(href="#").button.button_style-1 Перейти к профилю

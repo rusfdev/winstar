@@ -1,9 +1,49 @@
 .button {
+  --height: 50px;
+  --font-size: 16px;
+  --padding-x: 25px;
+  --font-weight: 700;
+  --icon-size: 16px;
+  --gap: 12px;
+
+  --background-color-hover: var(--background-color);
+  --color-hover: var(--color);
+
   position: relative;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
   display: inline-flex;
   justify-content: center;
+  align-items: center;
   text-align: center;
+  height: var(--height);
+  padding: 0 var(--padding-x);
+  font-size: var(--font-size);
+  font-weight: var(--font-weight);
+  gap: var(--gap);
+  background-color: var(--background-color);
+  color: var(--color);
+  transition: color var(--trs-1), background-color var(--trs-1);
+
+  &[data-touch], &[data-hover] {
+    background-color: var(--background-color-hover);
+    color: var(--color-hover);
+  }
+  
+  .icon {
+    width: var(--icon-size);
+    height: var(--icon-size);
+  }
+
+  &_large {
+    
+  }
+
+  &_small {
+    
+  }
+
+  &_style-1 {
+    --background-color: var(--color-main);
+    --background-color-hover: var(--color-main-medium);
+    --color: #fff;
+  }
 }

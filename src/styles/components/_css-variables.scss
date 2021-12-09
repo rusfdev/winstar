@@ -6,17 +6,12 @@
   --window-safe-height: var(--window-safe-height-property, 100vh);
 
   --page-width: calc(100vw - var(--scrollbar-width));
+  --container-width: #{map-get($container-max-widths, xl)};
   --content-width: calc(var(--container-width) - var(--container-padding-x) * 2);
   --content-fields-width: calc((var(--page-width) - var(--content-width)) / 2);
 
   --sticky-elements-safe-top: var(--header-fixed-height);
   
-  @include media-breakpoint-up(xxl) {
-    --container-width: #{map-get($container-max-widths, xxl)};
-  }
-  @include media-breakpoint-down(xxl) {
-    --container-width: #{map-get($container-max-widths, xl)};
-  }
   @include media-breakpoint-down(xl) {
     --container-width: #{map-get($container-max-widths, lg)};
   }

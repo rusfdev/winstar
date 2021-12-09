@@ -8,23 +8,24 @@ const breakpoints = {
 const $wrapper = document.querySelector('.wrapper');
 const $header = document.querySelector('.header');
 
-const animation_duration_1 = +getComputedStyle(document.documentElement).getPropertyValue('--animation-duration-1').replace(/[^\d.-]/g, '');
-const animation_duration_2 = +getComputedStyle(document.documentElement).getPropertyValue('--animation-duration-2').replace(/[^\d.-]/g, '');
-const animation_duration_3 = +getComputedStyle(document.documentElement).getPropertyValue('--animation-duration-3').replace(/[^\d.-]/g, '');
+const msDuration = {
+  1: +getComputedStyle(document.documentElement).getPropertyValue('--animation-duration-1').replace(/[^\d.-]/g, ''),
+  2: +getComputedStyle(document.documentElement).getPropertyValue('--animation-duration-2').replace(/[^\d.-]/g, ''),
+  3: +getComputedStyle(document.documentElement).getPropertyValue('--animation-duration-3').replace(/[^\d.-]/g, '')
+}
 
+//lazyloading
 import 'lazysizes';
+//animations
 import {gsap} from "gsap";
 gsap.defaults({
   ease: "power2.inOut",
-  duration: animation_duration_1 / 1000
+  duration: msDuration[1] / 1000
 });
-import {disablePageScroll, enablePageScroll} from 'scroll-lock';
-
-//animations
 gsap.registerEffect({
   name: "fadeIn",
   effect: ($element, config) => {
-    return gsap.fromTo($element, {autoAlpha: 0}, {immediateRender: false, autoAlpha: 1, duration: config.duration || animation_duration_1 / 1000,
+    return gsap.fromTo($element, {autoAlpha: 0}, {immediateRender: false, autoAlpha: 1, duration: config.duration || msDuration[1] / 1000,
       onStart: () => {
         $element.forEach($this => {
           $this.classList.add('d-block');
@@ -40,16 +41,37 @@ gsap.registerEffect({
   },
   extendTimeline: true
 });
+//scroll-lock
+import {disablePageScroll, enablePageScroll} from 'scroll-lock';
+//swiper
+import Swiper, {Navigation, Pagination, Lazy} from 'swiper';
+
+//lightbox
+require('fslightbox');
+document.addEventListener('click', (event) => {
+  if (event.target.closest('[data-fslightbox]')) event.preventDefault();
+})
+fsLightboxInstances['lightbox'].props.onOpen = () => {
+  disablePageScroll();
+}
+fsLightboxInstances['lightbox'].props.onClose = () => {
+  enablePageScroll();
+}
+
+
 
 document.addEventListener("DOMContentLoaded", function() {
   CustomInteractionEvents.init();
   HeaderSearch.init();
   Modals.init();
+
+  Components.add(HomeSlider, '.home-slider');
+  Components.init();
 });
 
 const CustomInteractionEvents = Object.create({
   targets: {
-    value: 'a, button, [data-custom-interaction]'
+    value: 'a, button, [data-custom-interaction], .swiper-button'
   },
   touchEndDelay: {
     value: 100
@@ -210,5 +232,60 @@ const Modals = {
     })
     
     //this.open(document.querySelector('#mobile-nav'));
+  }
+}
+
+const Components = {
+  instances: [],
+
+  add: function (clss, elements) {
+    const $elements = document.querySelectorAll(elements);
+    if (!$elements.length) return;
+    $elements.forEach($element => {
+      this.instances.push({
+        instance: new clss($element)
+      });
+    });
+  },
+
+  init: function () {
+    this.instances.forEach((obj) => {
+      if (obj.state) return;
+      obj.instance.init();
+      obj.state = true;
+    })
+  }
+}
+
+class HomeSlider {
+  constructor($parent) {
+    this.$parent = $parent;
+  }
+
+  init() {
+    this.$slider = this.$parent.querySelector('.swiper');
+    this.$pagination = this.$parent.querySelector('.swiper-pagination');
+    this.$prev = this.$parent.querySelector('.swiper-button-prev');
+    this.$next = this.$parent.querySelector('.swiper-button-next');
+
+    this.swiper = new Swiper(this.$slider, {
+      modules: [Pagination, Navigation, Lazy],
+      slidesPerView: 1,
+      speed: msDuration[3],
+      autoHeight: true,
+      loop: true,
+      pagination: {
+        el: this.$pagination,
+        clickable: true,
+        bulletElement: 'button'
+      },
+      navigation: {
+        prevEl: this.$prev,
+        nextEl: this.$next
+      },
+      lazy: {
+        loadPrevNext: true
+      }
+    })
   }
 }
