@@ -51,11 +51,14 @@ require('fslightbox');
 document.addEventListener('click', (event) => {
   if (event.target.closest('[data-fslightbox]')) event.preventDefault();
 })
-fsLightboxInstances['lightbox'].props.onOpen = () => {
-  disablePageScroll();
-}
-fsLightboxInstances['lightbox'].props.onClose = () => {
-  enablePageScroll();
+
+if (fsLightboxInstances['lightbox']) {
+  fsLightboxInstances['lightbox'].props.onOpen = () => {
+    disablePageScroll();
+  }
+  fsLightboxInstances['lightbox'].props.onClose = () => {
+    enablePageScroll();
+  }
 }
 
 
