@@ -14,10 +14,25 @@ const msDuration = {
   3: +getComputedStyle(document.documentElement).getPropertyValue('--animation-duration-3').replace(/[^\d.-]/g, '')
 }
 
+const cssVariables = {
+  get stickyElementsSafeTop() {
+    return parseInt(getComputedStyle(document.documentElement)
+      .getPropertyValue('--sticky-elements-safe-top')
+      .replace(/[^\d.-]/g, ''))
+  },
+  get scrollTopGutter () {
+    return parseInt(getComputedStyle(document.documentElement)
+      .getPropertyValue('--scroll-top-gutter')
+      .replace(/[^\d.-]/g, ''))
+  }
+}
+
 //lazyloading
 import 'lazysizes';
 //animations
 import {gsap} from "gsap";
+import {ScrollToPlugin} from "gsap/ScrollToPlugin";
+gsap.registerPlugin(ScrollToPlugin);
 gsap.defaults({
   ease: "power2.inOut",
   duration: msDuration[1] / 1000
@@ -38,6 +53,13 @@ gsap.registerEffect({
         })
       }
     })
+  },
+  extendTimeline: true
+});
+gsap.registerEffect({
+  name: "slide",
+  effect: ($element, config) => {
+    return gsap.fromTo($element, {css: {height:'0px'}}, {css: {height:'auto'}, duration: config.duration || msDuration[1] / 1000})
   },
   extendTimeline: true
 });
@@ -64,21 +86,50 @@ const validate = require("validate.js");
 import autosize from 'autosize';
 
 
-
 document.addEventListener("DOMContentLoaded", function() {
   CustomInteractionEvents.init();
 
   HeaderSearch.init();
   Modals.init();
   Inputs.init();
+  ScrollAnchors.init();
 
   autosize(document.querySelectorAll('.input textarea'));
+  collapse();
 
   Components.add(HomeSlider, '.home-slider');
   Components.init();
 });
 
+function collapse() {
+  let _toggle = '[data-collapse="toggle"]',
+      _parent = '[data-collapse="parent"]',
+      _content = '[data-collapse="content"]';
 
+  document.addEventListener('click', function(event) {
+    let $toggle = event.target.closest(_toggle);
+
+    if (!$toggle) return;
+
+    let $parent = $toggle.closest(_parent),
+        $content = $parent.querySelector(_content);
+
+    if (!$parent.animation) {
+      $parent.animation = gsap.timeline({paused: true})
+        .slide($content)
+    }
+
+    if (!$content.classList.contains('active')) {
+      $parent.animation.play();
+      $content.classList.add('active');
+      $toggle.classList.add('active');
+    } else {
+      $parent.animation.reverse();
+      $content.classList.remove('active');
+      $toggle.classList.remove('active');
+    }
+  })
+}
 
 const CustomInteractionEvents = Object.create({
   targets: {
@@ -284,6 +335,89 @@ const Inputs = {
     if($input.tagName=='TEXTAREA') {
       $input.style.height = 'initial';
     }
+  }
+}
+
+const ScrollAnchors = {
+  init: function() {
+    const _scroll_ = '[data-action="scroll"]';
+    const $scrollLinks = document.querySelectorAll(_scroll_);
+
+    let $activeLink;
+
+    let clickEvent = (event) => {
+      let $link = event.target.closest(`${_scroll_}`);
+
+      if (!$link) return;
+
+      event.preventDefault();
+
+      let attr = $link.getAttribute('href'),
+          $target = document.querySelector(`${attr}`);
+
+      if (!$target) return;
+
+      scrollEvent($target, $link);
+    }
+
+    let scrollEvent = ($target, $link) => {
+      this.inScroll = true;
+      window.dispatchEvent(new CustomEvent("ScrollAnchors:Start", {
+        detail:{
+          $target: $target,
+          $link: $link
+        }
+      }));
+
+      setActiveLink($link);
+
+      let ty1 = $target.getBoundingClientRect().top + window.pageYOffset,
+          ty2 = cssVariables.stickyElementsSafeTop,
+          ty3 = cssVariables.scrollTopGutter,
+          y = ty1 - ty2 - ty3;
+
+      if (this.animation && this.animation.isActive()) this.animation.pause(); 
+
+      this.animation = gsap.to(window, {scrollTo: y, duration: msDuration[3] / 1000, onComplete: () => {
+        window.dispatchEvent(new CustomEvent("ScrollAnchors:Finish"));
+        this.inScroll = false;
+      }});
+    }
+
+    let setActiveLink = ($link) => {
+      if (!$link.classList.contains('scroll-active')) {
+        if ($activeLink) $activeLink.classList.remove('scroll-active');
+        $link.classList.add('scroll-active');
+        $activeLink = $link;
+      }
+    }
+
+    let checkActiveLink = () => {
+      if (this.inScroll) return;
+
+      for (let $link of $scrollLinks) {
+        let $target = document.querySelector(`${$link.getAttribute('href')}`);
+        if (!$target) return;
+
+        let top = cssVariables.stickyElementsSafeTop + cssVariables.scrollTopGutter;
+        
+        let th = $target.getBoundingClientRect().height,
+            tt = $target.getBoundingClientRect().top,
+            tb = tt + th;
+        
+        if (top < tb) {
+          setActiveLink($link);
+          break;
+        }
+
+      }
+    }
+
+    checkActiveLink();
+    window.addEventListener('scroll', checkActiveLink);
+    window.addEventListener('resize', checkActiveLink);
+
+    document.addEventListener('click', clickEvent);
   }
 }
 

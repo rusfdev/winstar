@@ -1,0 +1,71 @@
+extends layout/layout
+
+block variables
+  -var title = 'Видео'
+  -var breadcrumbs = ['Главная', title]
+  
+block content
+  include blocks/breadcrumbs
+
+  section.section
+    .container
+      .row 
+
+        .col-xl-3.order-xl-2.mb-30.mb-sm-40.mb-xl-0
+          .aside-box.rubricator-box(data-collapse="parent")
+            
+            .rubricator-box__head(data-custom-interaction data-collapse="toggle")
+              h6.rubricator-box__title.mb-0 Разделы
+              .rubricator-box__head-icon 
+                svg.icon
+                  use(xlink:href='./img/icons/icons.svg#equals')
+                svg.icon
+                  use(xlink:href='./img/icons/icons.svg#close')
+
+            .rubricator-box__content(data-collapse="content")
+              ul.rubricator-box__list 
+                li.rubricator-box__item
+                  a.rubricator-box__link(href='#SolidCarbideEndmills' data-action="scroll")
+                    | Solid Carbide Endmills
+                    svg.icon
+                      use(xlink:href='./img/icons/icons.svg#caret-right')
+                li.rubricator-box__item
+                  a.rubricator-box__link(href='#IndexableInsertsTools' data-action="scroll")
+                    | Indexable Inserts & Tools
+                    svg.icon
+                      use(xlink:href='./img/icons/icons.svg#caret-right')
+                li.rubricator-box__item
+                  a.rubricator-box__link(href='#HolemakingTools' data-action="scroll")
+                    | Indexable Inserts & Tools
+                    svg.icon
+                      use(xlink:href='./img/icons/icons.svg#caret-right')
+
+        .col-xl-9
+          section.section#SolidCarbideEndmills
+            .mb-30
+              h2 Solid Carbide Endmills
+            .d-grid.grid-columns-sm-2.column-gap-grid.row-gap-30
+              +video-element(1)
+              +video-element(1)
+              +video-element(1)
+              +video-element(1)
+
+          section.section#IndexableInsertsTools
+            .mb-30
+              h2 Indexable Inserts & Tools
+            .d-grid.grid-columns-sm-2.column-gap-grid.row-gap-30
+              +video-element(2)
+              +video-element(2)
+              +video-element(2)
+              +video-element(2)
+
+          section.section#HolemakingTools
+            .mb-30
+              h2 Holemaking Tools
+            .d-grid.grid-columns-sm-2.column-gap-grid.row-gap-30
+              +video-element(3)
+              +video-element(3)
+              +video-element(3)
+              +video-element(3)
+
+        

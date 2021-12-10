@@ -11,6 +11,7 @@
   --content-fields-width: calc((var(--page-width) - var(--content-width)) / 2);
 
   --sticky-elements-safe-top: var(--header-fixed-height);
+  --scroll-top-gutter: 25px; 
   
   @include media-breakpoint-down(xl) {
     --container-width: #{map-get($container-max-widths, lg)};

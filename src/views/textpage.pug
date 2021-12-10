@@ -6,48 +6,46 @@ block variables
   
 block content
   include blocks/breadcrumbs
-  
-  .container
-    .row 
-      .col-xl-9
-        h1 Title H1
-        p Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-        h2 Title H2 
-        p Lorem ipsum dolor sit amet, consetetur <a href="#">sadipscing</a> elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-        p Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-        h3 Title H3
-        p Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-        include blocks/table
-        h5 Image 
-        img(data-src="https://picsum.photos/1400/800", alt="placeholder").lazyload
-        p Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
 
-      .col-xl-3.d-none.d-xl-block
-        .aside-box.rubricator-box
-          h6.rubricator-box__title Продукты
-          .rubricator-box__content
-            a.rubricator-box__link(href='end-mill')
-              | Фрезы твердосплавные цельные
-              svg.icon
-                use(xlink:href='./img/icons/icons.svg#caret-right')
-            a.rubricator-box__link(href='milling-inserts')
-              | Фрезерные пластины
-              svg.icon
-                use(xlink:href='./img/icons/icons.svg#caret-right')
-            a.rubricator-box__link(href='milling-holder')
-              | Фрезы корпусные
-              svg.icon
-                use(xlink:href='./img/icons/icons.svg#caret-right')
-            span.rubricator-box__link.active Сверла и развертки твердосплавные
-            a.rubricator-box__link(href='drills-inserts-holder-borin')
-              | Сверла корпусные и расточные системы
-              svg.icon
-                use(xlink:href='./img/icons/icons.svg#caret-right')
-            a.rubricator-box__link(href='turning-holder-other')
-              | Токарные пластины, держатели и прочее
-              svg.icon
-                use(xlink:href='./img/icons/icons.svg#caret-right')
-            a.rubricator-box__link(href='accessories')
-              | Аксессуары
-              svg.icon
-                use(xlink:href='./img/icons/icons.svg#caret-right')
+  section.section
+    .container
+      .row 
+        .col-xl-3.order-xl-2.mb-30.mb-sm-40.mb-xl-0
+          .aside-box.rubricator-box(data-collapse="parent")
+            
+            .rubricator-box__head(data-custom-interaction data-collapse="toggle")
+              h6.rubricator-box__title.mb-0 Разделы
+              .rubricator-box__head-icon 
+                svg.icon
+                  use(xlink:href='./img/icons/icons.svg#equals')
+                svg.icon
+                  use(xlink:href='./img/icons/icons.svg#close')
+
+            .rubricator-box__content(data-collapse="content")
+              ul.rubricator-box__list 
+                li.rubricator-box__item
+                  span.rubricator-box__link.active
+                    | Solid Carbide Endmills
+                li.rubricator-box__item
+                  a.rubricator-box__link(href="#")
+                    | Indexable Inserts & Tools
+                    svg.icon
+                      use(xlink:href='./img/icons/icons.svg#caret-right')
+                li.rubricator-box__item
+                  a.rubricator-box__link(href="#")
+                    | Indexable Inserts & Tools
+                    svg.icon
+                      use(xlink:href='./img/icons/icons.svg#caret-right')
+
+        .col-xl-9
+          h1 Title H1
+          p Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+          h2 Title H2 
+          p Lorem ipsum dolor sit amet, consetetur <a href="#">sadipscing</a> elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+          p Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+          h3 Title H3
+          p Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+          include blocks/table
+          h5 Image 
+          img(data-src="https://picsum.photos/1400/800", alt="placeholder").lazyload
+          p Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.

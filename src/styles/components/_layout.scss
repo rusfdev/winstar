@@ -28,6 +28,11 @@ body {
 
 .section {
   margin-bottom: 100px;
+  .section {
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
   @include media-breakpoint-down(lg) {
     margin-bottom: 80px;
   }

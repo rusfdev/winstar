@@ -15,6 +15,17 @@ mixin insta-post()
   .insta-post
     a(href="https://picsum.photos/800/800" data-fslightbox="lightbox").insta-post__image
       .image.image_cover  
-        img(data-src="https://picsum.photos/800/800" alt="Example image description").lazyload
+        img(data-src="https://picsum.photos/800/800" alt="image").lazyload
       svg.icon
         use(xlink:href='./img/icons/icons.svg#magnifying-glass')
+
+mixin video-element(gallery) 
+  .video-element
+    a(href="https://www.youtube.com/watch?v=E_OIdATYGXk" data-fslightbox=gallery).video-element__image 
+      .image.image_cover  
+        img(data-src="https://picsum.photos/1200/800" alt="image").lazyload
+      svg.icon
+        use(xlink:href='./img/icons/icons.svg#play')
+      
+    .video-element__title
+      h6 High Feed Face Milling - CXBN Series with BNMX0603 Insert | Taiwan Winstar Cutting
