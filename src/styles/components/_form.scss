@@ -1,0 +1,91 @@
+.input {
+  --height: 50px;
+  --line-height: 20px;
+  --font-size: 16px;
+  --placeholder-color: var(--color-muted);
+  --input-color: var(--color-text-accent);
+  --border-color: var(--color-main);
+  --px: 20px;
+  position: relative;
+
+  &::before {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 1px solid var(--border-color);
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  input, textarea {
+    color: var(--input-color);
+    font-size: var(--font-size);
+    line-height: var(--line-height);
+    padding: calc((var(--height) - var(--line-height)) / 2) var(--px);
+    width: 100%;
+    position: relative;
+    transition: color var(--trs-1);
+    
+    &:-webkit-autofill {
+      -webkit-text-fill-color: var(--input-color);
+    }
+    
+    &[required] {
+      & ~ .input-element span {
+        &::after {
+          opacity: 1;
+          visibility: visible;
+        }
+      }
+    }
+
+    &[disabled] {
+      cursor: default;
+    }
+
+    &:focus, &.filled {
+      & ~ .input-element {
+        span {
+          opacity: 0;
+          visibility: hidden;
+        }
+      }
+    }
+  }
+
+  textarea {
+    min-height: 200px;
+  }
+
+  input {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  &-element {
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    span {
+      color: var(--placeholder-color);
+      transition: opacity var(--trs-1), visibility var(--trs-1), color var(--trs-1);
+      font-size: var(--font-size);
+      line-height: var(--line-height);
+      position: absolute;
+      top: calc((var(--height) - var(--line-height)) / 2);
+      left: var(--px);
+      &::after {
+        content: '*';
+        transition: opacity var(--trs-1), visibility var(--trs-1);
+        opacity: 0;
+        visibility: hidden;
+      }
+    }
+  }
+
+}

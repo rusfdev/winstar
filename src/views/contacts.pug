@@ -8,4 +8,63 @@ block variables
 block content
   include blocks/breadcrumbs
 
-  
+  section.section
+    .container.mb-30
+      .row
+        .col-xl-9
+          h1 Контакты
+          p Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique ut vero ex, officia magni id commodi aliquam quibusdam quo odit minus voluptates perspiciatis nobis necessitatibus laudantium est veniam incidunt. Quo!
+
+    .contact-map.mb-60
+      iframe.contact-map__element(src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d575375.1291925807!2d37.20689501802413!3d55.714035250738746!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b54afc73d4b0c9%3A0x3d44d6cc5757cf4c!2z0JzQvtGB0LrQstCwLCDQoNC-0YHRgdC40Y8!5e0!3m2!1sru!2sua!4v1639149026101!5m2!1sru!2sua' loading='lazy') 
+
+    .container
+      .row 
+        .col-xl-8
+          .mb-30
+            h3 Форма обратной связи
+            p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          
+          form(action="#")
+            .row.row-gap-20.row-gap-md-25.mb-30
+              .col-md-6
+                .row.row-gap-20.row-gap-md-25
+                  //element
+                  .col-12
+                    .input
+                      input(type="text" required)
+                      .input-element
+                        span Имя
+                  //element
+                  .col-12
+                    .input
+                      input(type="text" required)
+                      .input-element
+                        span Телефон
+                  //element
+                  .col-12
+                    .input
+                      input(type="email" required)
+                      .input-element
+                        span Email
+              .col-md-6
+                //element
+                .input
+                  textarea
+                  .input-element
+                    span Текст сообщения 
+            .row
+              .col-md-6
+                button(type="submit").button.button_style-1.button_large.w-100 
+                  span Отправить
+
+        .offset-xl-1.col-xl-3.mt-60.mt-xl-0 
+          h3 Возможно какие-то данные компании
+          p 
+            | Lorem ipsum dolor sit amet consectetur. 
+            br
+            | Email: 
+            a(href="") email@email.ru
+            br
+            | Phone: 
+            a(href="") 899929920021

@@ -45,13 +45,11 @@ gsap.registerEffect({
 import {disablePageScroll, enablePageScroll} from 'scroll-lock';
 //swiper
 import Swiper, {Navigation, Pagination, Lazy} from 'swiper';
-
 //lightbox
 require('fslightbox');
 document.addEventListener('click', (event) => {
   if (event.target.closest('[data-fslightbox]')) event.preventDefault();
 })
-
 if (fsLightboxInstances['lightbox']) {
   fsLightboxInstances['lightbox'].props.onOpen = () => {
     disablePageScroll();
@@ -60,17 +58,27 @@ if (fsLightboxInstances['lightbox']) {
     enablePageScroll();
   }
 }
+//validate.js
+const validate = require("validate.js");
+//autosize
+import autosize from 'autosize';
 
 
 
 document.addEventListener("DOMContentLoaded", function() {
   CustomInteractionEvents.init();
+
   HeaderSearch.init();
   Modals.init();
+  Inputs.init();
+
+  autosize(document.querySelectorAll('.input textarea'));
 
   Components.add(HomeSlider, '.home-slider');
   Components.init();
 });
+
+
 
 const CustomInteractionEvents = Object.create({
   targets: {
@@ -235,6 +243,47 @@ const Modals = {
     })
     
     //this.open(document.querySelector('#mobile-nav'));
+  }
+}
+
+const Inputs = {
+  init: function() {
+    this._class_ = 'input';
+    this._class_filled_ = 'filled';
+    
+    let events = (event) => {
+      let $input = event.target,
+          $parent = $input.closest(`.${this._class_}`);
+
+      if (!$parent) return;
+         
+      let input_empty = validate.single($input.value, {presence: {allowEmpty: false}}) !== undefined;
+        
+      if(event.type=='input' || event.type=='change') {
+        if(!input_empty) {
+          $input.classList.add(this._class_filled_);
+        } else {
+          $input.classList.remove(this._class_filled_);
+        }
+      }
+    
+      else if(event.type=='blur') {
+        if(input_empty) {
+          $input.classList.remove(this._class_filled_);
+          $input.value = '';
+        }
+      } 
+    }
+
+    document.addEventListener('input', events, true);
+    document.addEventListener('blur', events, true);
+  },
+  reset: function($input) {
+    $input.value = '';
+    $input.classList.remove(this._class_filled_);
+    if($input.tagName=='TEXTAREA') {
+      $input.style.height = 'initial';
+    }
   }
 }
 

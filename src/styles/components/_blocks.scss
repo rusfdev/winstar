@@ -110,3 +110,11 @@
   }
 }
 
+.contact-map {
+  &__element {
+    display: block;
+    border: none;
+    width: 100%;
+    height: 500px;
+  }
+}

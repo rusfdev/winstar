@@ -154,20 +154,20 @@ img {
   padding: 25px 20px;
   top: calc(var(--sticky-elements-safe-top) + 25px);
   transition: top var(--trs-1);
+  line-height: var(--normal-line-height);
   &__link {
     display: flex;
     justify-content: space-between;
-    align-items: center;
     gap: 5px;
+    transition: color var(--trs-1);
     .icon {
       width: 16px;
-      height: 16px;
+      height: calc(1em * var(--normal-line-height));
       flex-shrink: 0;
     }
     &:not(:last-child) {
-      margin-bottom: 5px;
+      margin-bottom: 12px;
     }
-    transition: color var(--trs-1);
     &[data-touch], &[data-hover] {
       color: var(--color-main-alternate);
     }

@@ -24,16 +24,30 @@ block content
 
       .col-xl-3.d-none.d-xl-block
         .aside-box.rubricator-box
-          h6.rubricator-box__title Категория
+          h6.rubricator-box__title Продукты
           .rubricator-box__content
-            a(href="#").rubricator-box__link.active Текстовая страница
-              
-            a(href="#").rubricator-box__link Indexable Milling Tools
+            a.rubricator-box__link(href='end-mill')
+              | Фрезы твердосплавные цельные
               svg.icon
                 use(xlink:href='./img/icons/icons.svg#caret-right')
-            a(href="#").rubricator-box__link Holemaking Tools
+            a.rubricator-box__link(href='milling-inserts')
+              | Фрезерные пластины
               svg.icon
                 use(xlink:href='./img/icons/icons.svg#caret-right')
-            a(href="#").rubricator-box__link Turning Tools
+            a.rubricator-box__link(href='milling-holder')
+              | Фрезы корпусные
+              svg.icon
+                use(xlink:href='./img/icons/icons.svg#caret-right')
+            span.rubricator-box__link.active Сверла и развертки твердосплавные
+            a.rubricator-box__link(href='drills-inserts-holder-borin')
+              | Сверла корпусные и расточные системы
+              svg.icon
+                use(xlink:href='./img/icons/icons.svg#caret-right')
+            a.rubricator-box__link(href='turning-holder-other')
+              | Токарные пластины, держатели и прочее
+              svg.icon
+                use(xlink:href='./img/icons/icons.svg#caret-right')
+            a.rubricator-box__link(href='accessories')
+              | Аксессуары
               svg.icon
                 use(xlink:href='./img/icons/icons.svg#caret-right')
