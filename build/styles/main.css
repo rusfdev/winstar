@@ -4627,26 +4627,24 @@ img {
 
 .downloads-element__content {
   text-align: center;
-  padding: 10px 0 0 0; }
+  padding: 10px 0 0 0;
+  font-size: 14px; }
 
 .downloads-element__index {
   color: var(--color-muted);
   margin-bottom: 5px; }
 
 .downloads-element__title {
-  margin: 0 0 10px 0; }
+  margin: 0 0 10px 0;
+  font-size: 16px; }
 
 .downloads-element__link {
   display: inline-flex;
   gap: 8px;
   align-items: center; }
   .downloads-element__link .icon {
-    width: 18px;
-    height: 18px; }
-
-@media (max-width: 575.98px) {
-  .downloads-element__title {
-    font-size: 16px; } }
+    width: 16px;
+    height: 16px; }
 
 /*========== Typography ==========*/
 :root {
@@ -4687,13 +4685,7 @@ h5, .h5 {
   font-size: 22px; }
 
 h6, .h6 {
-  font-size: 20px; }
-
-@media (max-width: 575.98px) {
-  h5, .h5 {
-    font-size: 20px; }
-  h6, .h6 {
-    font-size: 18px; } }
+  font-size: 18px; }
 
 p {
   margin: 0 0 16px 0; }
@@ -4761,7 +4753,8 @@ a:not([class]), .link {
     --color-fill-accent: #e7f2ff;
     --py: 12px;
     min-width: 100%;
-    line-height: 1.25; }
+    line-height: 1.25;
+    font-size: 14px; }
     .table table th, .table table td {
       text-align: center;
       padding-top: var(--py);

@@ -5,8 +5,6 @@
   --normal-line-height: 1.5;
 }
 
-
-
 body {
   font-family: var(--global-font-family);
   font-size: var(--global-font-size);
@@ -43,15 +41,7 @@ h5, .h5 {
   font-size: 22px;
 }
 h6, .h6 {
-  font-size: 20px;
-}
-@include media-breakpoint-down(sm) {
-  h5, .h5 {
-    font-size: 20px;
-  }
-  h6, .h6 {
-    font-size: 18px;
-  }
+  font-size: 18px;
 }
 
 p {
@@ -138,6 +128,7 @@ a:not([class]), .link {
     --py: 12px;
     min-width: 100%;
     line-height: 1.25;
+    font-size: 14px;
     th, td {
       text-align: center;
       padding-top: var(--py);
