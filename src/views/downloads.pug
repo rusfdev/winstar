@@ -1,0 +1,56 @@
+extends layout/layout
+
+block variables
+  -var title = 'Загрузки'
+  -var breadcrumbs = ['Главная', title]
+  
+block content
+  include blocks/breadcrumbs
+
+  section.section
+    .container
+      .row 
+
+        .col-xl-3.order-xl-2.mb-30.mb-sm-40.mb-xl-0
+          .aside-box.rubricator-box(data-collapse="parent")
+            
+            .rubricator-box__head(data-custom-interaction data-collapse="toggle")
+              h6.rubricator-box__title.mb-0 Загрузки
+              .rubricator-box__head-icon 
+                svg.icon
+                  use(xlink:href='./img/icons/icons.svg#equals')
+                svg.icon
+                  use(xlink:href='./img/icons/icons.svg#close')
+
+            .rubricator-box__content(data-collapse="content")
+              ul.rubricator-box__list 
+                li.rubricator-box__item
+                  a.rubricator-box__link(href='#Brochure' data-action="scroll")
+                    | Brochure
+                    svg.icon
+                      use(xlink:href='./img/icons/icons.svg#caret-right')
+                li.rubricator-box__item
+                  a.rubricator-box__link(href='#Catalogue' data-action="scroll")
+                    | Catalogue
+                    svg.icon
+                      use(xlink:href='./img/icons/icons.svg#caret-right')
+
+        .col-xl-9
+          section.section#Brochure
+            h2.mb-25.mb-sm-30 Brochure
+            .d-grid.grid-columns-2.grid-columns-md-3.column-gap-grid.row-gap-30
+              +download-element('2022 New Milling Grades – CX32HX and CX33TX')
+              +download-element('2022 New Grade for Carbide Insert')
+              +download-element('2022 New Milling Grades – CX32HX and CX33TX')
+              +download-element('2022 New Grade for Carbide Insert')
+              +download-element('2022 New Milling Grades – CX32HX and CX33TX')
+              +download-element('2022 New Grade for Carbide Insert')
+          section.section#Catalogue
+            h2.mb-25.mb-sm-30 Catalogue
+            .d-grid.grid-columns-2.grid-columns-md-3.column-gap-grid.row-gap-30
+              +download-element('2022 New Milling Grades – CX32HX and CX33TX')
+              +download-element('2022 New Grade for Carbide Insert')
+              +download-element('2022 New Milling Grades – CX32HX and CX33TX')
+              +download-element('2022 New Grade for Carbide Insert')
+              +download-element('2022 New Milling Grades – CX32HX and CX33TX')
+              +download-element('2022 New Grade for Carbide Insert')

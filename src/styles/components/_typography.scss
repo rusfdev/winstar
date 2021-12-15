@@ -45,6 +45,14 @@ h5, .h5 {
 h6, .h6 {
   font-size: 20px;
 }
+@include media-breakpoint-down(sm) {
+  h5, .h5 {
+    font-size: 20px;
+  }
+  h6, .h6 {
+    font-size: 18px;
+  }
+}
 
 p {
   margin: 0 0 16px 0;

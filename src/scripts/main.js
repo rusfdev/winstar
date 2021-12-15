@@ -211,6 +211,10 @@ const HeaderSearch = {
     this.$parent = document.querySelector(this._parent_);
     this.$trigger = document.querySelector(this._trigger_);
 
+    if (!this.$parent) return;
+
+    console.log(this.$parent)
+
     this.show = () => {
       this.state = true;
       this.$trigger.classList.add('active');

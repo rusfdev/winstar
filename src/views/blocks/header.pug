@@ -78,23 +78,25 @@ nav.header-nav
             a(href="#").header-nav__link 
               span Контакты
 
-          li.header-nav__item.header-nav__search-toggle
-            button(type="button").header-search-toggle
-              .header-search-toggle__icon
-                svg.icon
-                  use(xlink:href='./img/icons/icons.svg#magnifying-glass')
-                svg.icon
-                  use(xlink:href='./img/icons/icons.svg#close')
-              span Поиск 
-                .d-none.d-sm-inline по странице
+          if page == 'text'
+            li.header-nav__item.header-nav__search-toggle
+              button(type="button").header-search-toggle
+                .header-search-toggle__icon
+                  svg.icon
+                    use(xlink:href='./img/icons/icons.svg#magnifying-glass')
+                  svg.icon
+                    use(xlink:href='./img/icons/icons.svg#close')
+                span Поиск 
+                  .d-none.d-sm-inline по странице
 
-  .header-search
-    .container.header-search__container
-      form(action="#").header-search__form
-        button.header-search__submit 
-          svg.icon
-            use(xlink:href='./img/icons/icons.svg#magnifying-glass')
-        input(type="text" placeholder="Поиск...").header-search__input 
+  if page == 'text'
+    .header-search
+      .container.header-search__container
+        form(action="#").header-search__form
+          button.header-search__submit 
+            svg.icon
+              use(xlink:href='./img/icons/icons.svg#magnifying-glass')
+          input(type="text" placeholder="Поиск...").header-search__input 
 
 nav.mobile-nav#mobile-nav
   .mobile-nav__container(data-scroll-lock-scrollable)

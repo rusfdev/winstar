@@ -29,3 +29,18 @@ mixin video-element(gallery)
       
     .video-element__title
       h6 High Feed Face Milling - CXBN Series with BNMX0603 Insert | Taiwan Winstar Cutting
+
+mixin download-element(title)
+  .downloads-element
+    a(href="http://www.winstarcutting.com/catalogue/brochure/W211201E_2022NewMillingGardeCX32HXCX33TX.pdf" target="_blank").downloads-element__image
+      .image.image_cover 
+        img(data-src="./img/np_W211201E_2022NewMillingGardeCX32HXCX33TX.jpeg", alt="image").lazyload
+      svg.icon
+        use(xlink:href='./img/icons/icons.svg#download')
+    .downloads-element__content
+      .downloads-element__index W211201
+      h6.downloads-element__title=title
+      a(href="http://www.winstarcutting.com/catalogue/brochure/W211201E_2022NewMillingGardeCX32HXCX33TX.pdf" target="_blank").downloads-element__link.link
+        svg.icon
+          use(xlink:href='./img/icons/icons.svg#download')
+        | Загрузить
