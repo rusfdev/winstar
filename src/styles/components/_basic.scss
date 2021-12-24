@@ -9,7 +9,7 @@
   }
 }
 
-a, button, input, textarea, select, label, [data-custom-interaction] {
+a, button, label, [data-custom-interaction] {
   touch-action: manipulation;
   user-select: none;
 }

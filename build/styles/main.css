@@ -4132,7 +4132,7 @@ template {
   *:before, *:after {
     box-sizing: border-box; }
 
-a, button, input, textarea, select, label, [data-custom-interaction] {
+a, button, label, [data-custom-interaction] {
   touch-action: manipulation;
   -webkit-user-select: none;
      -moz-user-select: none;
