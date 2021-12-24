@@ -93,10 +93,20 @@ nav.header-nav
     .header-search
       .container.header-search__container
         form(action="#").header-search__form
-          button.header-search__submit 
-            svg.icon
-              use(xlink:href='./img/icons/icons.svg#magnifying-glass')
           input(type="text" placeholder="Поиск...").header-search__input 
+        
+        .header-search__results
+          .header-search__selected-result-index 0
+          .header-search__results-length 0
+
+        .header-search__controls
+          button.header-search__result-control.header-search__result-control-prev.disabled
+            svg.icon
+              use(xlink:href='./img/icons/icons.svg#caret-top')
+          button.header-search__result-control.header-search__result-control-next.disabled
+            svg.icon
+              use(xlink:href='./img/icons/icons.svg#caret-bottom')
+
 
 nav.mobile-nav#mobile-nav
   .mobile-nav__container(data-scroll-lock-scrollable)

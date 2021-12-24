@@ -104,13 +104,24 @@
         <div class="header-search">
           <div class="container header-search__container">
             <form class="header-search__form" action="#">
-              <button class="header-search__submit">
-                <svg class="icon">
-                  <use xlink:href="./img/icons/icons.svg#magnifying-glass"></use>
-                </svg>
-              </button>
               <input class="header-search__input" type="text" placeholder="Поиск...">
             </form>
+            <div class="header-search__results">
+              <div class="header-search__selected-result-index">0</div>
+              <div class="header-search__results-length">0</div>
+            </div>
+            <div class="header-search__controls">
+              <button class="header-search__result-control header-search__result-control-prev disabled">
+                <svg class="icon">
+                  <use xlink:href="./img/icons/icons.svg#caret-top"></use>
+                </svg>
+              </button>
+              <button class="header-search__result-control header-search__result-control-next disabled">
+                <svg class="icon">
+                  <use xlink:href="./img/icons/icons.svg#caret-bottom"></use>
+                </svg>
+              </button>
+            </div>
           </div>
         </div>
       </nav>

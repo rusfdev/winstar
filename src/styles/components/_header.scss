@@ -183,6 +183,9 @@
     &__container {
       padding: 0;
     }
+    &__content {
+      gap: 16px;
+    }
   }
 }
 
@@ -239,6 +242,7 @@
   @include media-breakpoint-down(sm) {
     padding: 0 var(--container-padding-x);
     background-color: transparent;
+    min-width: calc(var(--height) * 2);
     &[data-touch], &[data-hover] {
       background-color: var(--color-main-medium);
     }
@@ -285,10 +289,15 @@
   &.active {
     transform: translateY(0);
   }
+  &__container {
+    display: flex;
+    gap: 20px;
+  }
   &__form {
     transform: translateY(var(--form-translate));
     display: flex;
     transition: transform var(--trs-1);
+    flex: 1 1 auto;
   }
   &__submit {
     flex: 0 0 auto;
@@ -322,12 +331,58 @@
       }
     }
   }
-  @include media-breakpoint-down(lg) {
-    --icon-size: 22px;
+
+  &__results {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+  }
+
+  &__selected-result-index {
+    &::after {
+      content: '/';
+      display: inline-block;
+      margin: 0 0.4em;
+    }
+  }
+
+  &__controls {
+    flex: 0 0 auto;
+    display: flex;
+  }
+
+  &__result-control {
+    --icon-size: 18px;
+    display: flex;
+    height: var(--height);
+    width: var(--height);
+    padding: calc((var(--height) - var(--icon-size)) / 2);
+    transition: background-color var(--trs-1);
+    .icon {
+      width: var(--icon-size);
+      height: var(--icon-size);
+    }
+    &[data-touch], &[data-hover] {
+      &:not(.disabled) {
+        background-color: var(--color-main-alternate);
+      }
+    }
+    &.disabled {
+      cursor: default;
+    }
+  }
+  @include media-breakpoint-down(xl) {
+    &__result-control {
+      --icon-size: 20px;
+    }
   }
   @include media-breakpoint-down(sm) {
     &__container {
-      padding-left: 0;
+      padding-right: 0;
+    }
+    &__container {
+      display: flex;
+      gap: 16px;
     }
   }
 }

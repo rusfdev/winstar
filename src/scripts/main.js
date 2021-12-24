@@ -16,14 +16,14 @@ const msDuration = {
 
 const cssVariables = {
   get stickyElementsSafeTop() {
-    return parseInt(getComputedStyle(document.documentElement)
+    return eval(getComputedStyle(document.documentElement)
       .getPropertyValue('--sticky-elements-safe-top')
-      .replace(/[^\d.-]/g, ''))
+      .replace(/[^0-9\\+-/*()]/g, ''))
   },
   get scrollTopGutter () {
-    return parseInt(getComputedStyle(document.documentElement)
+    return eval(getComputedStyle(document.documentElement)
       .getPropertyValue('--scroll-top-gutter')
-      .replace(/[^\d.-]/g, ''))
+      .replace(/[^0-9\\+-/*()]/g, ''))
   }
 }
 
@@ -205,15 +205,15 @@ const CustomInteractionEvents = Object.create({
 })
 
 const HeaderSearch = {
-  init: function() {
-    this._trigger_ = '.header-search-toggle';
+  init() {
+    
     this._parent_ = '.header-search';
     this.$parent = document.querySelector(this._parent_);
-    this.$trigger = document.querySelector(this._trigger_);
 
     if (!this.$parent) return;
 
-    console.log(this.$parent)
+    this._trigger_ = '.header-search-toggle';
+    this.$trigger = document.querySelector(this._trigger_);
 
     this.show = () => {
       this.state = true;
@@ -227,6 +227,10 @@ const HeaderSearch = {
       this.$trigger.classList.remove('active');
       this.$parent.classList.remove('active');
       document.documentElement.style.setProperty('--sticky-elements-safe-top', 'var(--header-fixed-height)');
+
+      //reset input
+      $input.value = '';
+      $input.dispatchEvent(new Event("change"));
     }
 
     this.$trigger.addEventListener('click', () => {
@@ -237,11 +241,162 @@ const HeaderSearch = {
       }
     })
 
-    document.addEventListener('click', (event) => {
+    //закрыть поиск при клике вне его области
+    /* document.addEventListener('click', (event) => {
       if (!event.target.closest(this._trigger_) && !event.target.closest(this._parent_) && this.state) {
         this.hide();
       }
+    }) */
+
+
+    //поиск
+    const $input = this.$parent.querySelector('.header-search__input');
+    const $resultsLengthValue = this.$parent.querySelector('.header-search__results-length');
+    const $selectedResultIndex = this.$parent.querySelector('.header-search__selected-result-index');
+    const $controls = this.$parent.querySelectorAll('.header-search__result-control');
+    const $prevResult = this.$parent.querySelector('.header-search__result-control-prev');
+    const $nextResult = this.$parent.querySelector('.header-search__result-control-next');
+    const $targets = document.querySelectorAll('.table table td');
+
+    const data = new Proxy({
+      selectedResultIndex: 0,
+      resultsLength: 0,
+      $selectedResult: undefined,
+      results: new Proxy({}, {
+        defineProperty(target, name, propertyDescriptor) {
+          target[name] = propertyDescriptor.value;
+
+          const $result = propertyDescriptor.value.$result;
+          $result.classList.add('matchResult');
+
+          return true;
+        },
+        deleteProperty(target, name) {
+          const $result = target[name].$result;
+          const index = target[name].index;
+          $result.classList.remove('matchResult');
+
+          if (index == data.selectedResultIndex) {
+            data.selectedResultIndex = 0;
+          }
+          
+          delete target[name];
+          return true;
+        }
+      })
+    }, {
+      set(target, name, value) {
+
+        //изменение количества найденых
+        if (name == 'resultsLength') {
+          $resultsLengthValue.textContent = value;
+
+          if (value == 0) {
+            $controls.forEach(($control) => { $control.classList.add('disabled') });
+            data.selectedResultIndex = 0;
+          } else {
+            $controls.forEach(($control) => { $control.classList.remove('disabled') });
+            if (data.selectedResultIndex == 0) {
+              data.selectedResultIndex = 1;
+            } else {
+              for (let key in data.results) {
+                if (data.results[key].$result == data.$selectedResult) {
+                  if (data.selectedResultIndex !== data.results[key].index) {
+                    data.selectedResultIndex = data.results[key].index;
+                  }
+                }
+              }
+            }
+          }
+
+        } 
+
+        //изменение активного индекса
+        if (name == 'selectedResultIndex') {
+          $selectedResultIndex.textContent = value;
+
+          if (value == 0) {
+            data.$selectedResult = undefined;
+          } else {
+            for (let key in data.results) {
+              if (data.results[key].index == value) {
+                data.$selectedResult = data.results[key].$result;
+              }
+            }
+          }
+        } 
+
+        //изменение активного элемента
+        if (name == '$selectedResult') {
+          const $result = value;
+          if ($result !== data.$selectedResult) {
+            if (data.$selectedResult) data.$selectedResult.classList.remove('selectedResult');
+            if ($result) {
+              $result.classList.add('selectedResult');
+              scrollTo($result);
+            }
+          }
+        }
+
+        target[name] = value;
+        return true;
+      }
     })
+
+    this.matchSearch = (event) => {
+      let resultIndex = 0;
+
+      $targets.forEach(($target, index) => {
+        const targetText = $target.textContent.toLowerCase();
+        const searchText = event.target.value.toLowerCase();
+
+        if (searchText.length && targetText.indexOf(searchText) >= 0) {
+          resultIndex += 1;
+
+          if (!data.results[index]) {
+            data.results[index] = {
+              $result: $target,
+              index: resultIndex
+            };
+          } else {
+            data.results[index].index = resultIndex;
+          }
+
+        } else {
+          if (data.results[index]) {
+            delete data.results[index];
+          }
+        }
+      })
+
+      data.resultsLength = resultIndex;
+    }
+    
+    const scrollTo = ($target) => {
+      let y = $target.getBoundingClientRect().top 
+              + window.pageYOffset 
+              + $target.getBoundingClientRect().height / 2 
+              - window.innerHeight / 2;
+    
+      gsap.to(window, {scrollTo: y, duration: msDuration[1] / 1000});
+    }
+
+    this.nextResult = () => {
+      if (!data.resultsLength) return;
+      const next = data.selectedResultIndex + 1;
+      data.selectedResultIndex = next > data.resultsLength ? 1 : next;
+    }
+
+    this.prevResult = () => {
+      if (!data.resultsLength) return;
+      const prev = data.selectedResultIndex - 1;
+      data.selectedResultIndex = prev < 1 ? data.resultsLength : prev;
+    }
+
+    $prevResult.addEventListener('click', this.prevResult);
+    $nextResult.addEventListener('click', this.nextResult);
+    $input.addEventListener('input', this.matchSearch);
+    $input.addEventListener('change', this.matchSearch);
   }
 }
 
